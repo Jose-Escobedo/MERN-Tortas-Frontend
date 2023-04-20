@@ -216,7 +216,7 @@ const PickupInfo = () => {
   };
 
   const handleOrderCreationWithUser = (e) => {
-    fetch("http://localhost:5000/api/orders", {
+    fetch("https://tortasbackend.herokuapp.com/api/orders", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -248,7 +248,7 @@ const PickupInfo = () => {
   };
 
   const handleOrderCreationNoUser = (e) => {
-    fetch("http://localhost:5000/api/orders", {
+    fetch("https://tortasbackend.herokuapp.com/api/orders", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -280,7 +280,7 @@ const PickupInfo = () => {
   };
 
   const handleStripePaymentWithUser = (id) => {
-    fetch("http://localhost:5000/api/checkout/payment", {
+    fetch("https://tortasbackend.herokuapp.com/api/checkout/payment", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_STRIPE}`,
@@ -310,7 +310,7 @@ const PickupInfo = () => {
   };
 
   const handleStripePaymentNoUser = (id) => {
-    fetch("http://localhost:5000/api/checkout/payment", {
+    fetch("https://tortasbackend.herokuapp.com/api/checkout/payment", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_STRIPE}`,

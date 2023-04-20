@@ -26,7 +26,7 @@ const Orders = () => {
     }, 2000);
 
     const getOrders = () => {
-      fetch(`http://localhost:5000/api/orders/find/${user._id}`, {
+      fetch(`https://tortasbackend.herokuapp.com/api/orders/find/${user._id}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${TOKEN}`,
