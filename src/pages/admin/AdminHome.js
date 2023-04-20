@@ -20,7 +20,7 @@ const AdminHome = () => {
 
   useEffect(() => {
     if (admin) {
-      fetch("http://localhost:5000/api/orders/?new=true", {
+      fetch("https://tortasbackend.herokuapp.com/api/orders/?new=true", {
         method: "GET",
         headers: {
           Accept: "application/json",

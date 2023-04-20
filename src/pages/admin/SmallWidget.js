@@ -12,14 +12,17 @@ const SmallWidget = () => {
   useEffect(() => {
     const getUsers = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/users/?new=true", {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            authorization: "Bearer " + TOKEN,
-          },
-        })
+        const res = await fetch(
+          "https://tortasbackend.herokuapp.com/api/users/?new=true",
+          {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              authorization: "Bearer " + TOKEN,
+            },
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             setUsers(data);

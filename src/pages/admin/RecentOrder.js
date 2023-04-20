@@ -20,7 +20,7 @@ const RecentOrder = () => {
   const currentDate = moment().toISOString();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/orders/find/order/${id}`, {
+    fetch(`https://tortasbackend.herokuapp.com/api/orders/find/order/${id}`, {
       method: "GET",
       headers: {
         Accept: "application/json",
