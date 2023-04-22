@@ -1,10 +1,3 @@
-import AsadaFries from "./images/asada-fries-removebg-min.png";
-import Taquitos from "./images/taquitos-removebg-min.png";
-import Mole from "./images/mole-removebg.png";
-import WetBurrito from "./images/burrito-wet.JPG";
-import TortaCubana from "./images/cubana.jpg";
-import BucheTacos from "./images/tacos-buche.jpeg";
-
 export const SliderItems = [
   {
     id: "62d006c9c020372b553c8946",

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { popularProducts } from "../data";
+// import { popularProducts } from "../data";
 import CategoryGridList from "./CategoryGridList";
 import MenuGridList from "./MenuGridList";
 import ProductItem from "./ProductItem";
