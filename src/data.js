@@ -1,7 +1,7 @@
 export const SliderItems = [
   {
     id: "62d00602c020372b553c8944",
-    img: `https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/cubana.jpg?alt=media&token=94876bed-3776-4093-9134-57f064c4ae7d`,
+    img: `https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/cubana-removebg-preview.png?alt=media&token=6aed1aae-a5a4-4893-90d6-54b83cf25927`,
     title: "Torta Cubana",
     desc: "Try Our Flavory Torta Cubana",
     bg: "fbf0f4",
