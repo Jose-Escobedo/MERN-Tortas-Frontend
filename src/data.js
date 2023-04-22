@@ -8,21 +8,21 @@ import BucheTacos from "./images/tacos-buche.jpeg";
 export const SliderItems = [
   {
     id: "62d006c9c020372b553c8946",
-    img: `${AsadaFries}`,
+    img: `https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/asada-fries-removebg-min.png?alt=media&token=7f7ebdcf-a22a-4566-bf8c-d0519bcb9c80`,
     title: "Asada Fries",
     desc: "Try Our Delicious Asada Fries",
     bg: "f5fafd",
   },
   {
     id: "62d00814c020372b553c894a",
-    img: `${Mole}`,
+    img: `https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/mole-removebg-min.png?alt=media&token=fe32932d-58a6-43d7-b862-1af5a8a90475`,
     title: "Pollo Con Mole",
     desc: "Try Our Tasty Pollo Con Mole",
     bg: "fcf1ed",
   },
   {
     id: "638ba957773371cc8a0988bc",
-    img: `${Taquitos}`,
+    img: `https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/taquitos-removebg-min.png?alt=media&token=5ff6816e-9c3b-4f23-b088-c499b0a8ea8c`,
     title: "Taquitos",
     desc: "Try Our Crispy Chicken Taquitos",
     bg: "fbf0f4",
@@ -32,13 +32,13 @@ export const SliderItems = [
 export const categories = [
   {
     id: 1,
-    img: `${TortaCubana}`,
+    img: `https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/cubana.jpg?alt=media&token=94876bed-3776-4093-9134-57f064c4ae7d`,
     title: "Tortas",
     cat: "tortas",
   },
   {
     id: 2,
-    img: `${WetBurrito}`,
+    img: `https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/burrito-wet.JPG?alt=media&token=8f2af152-f2f7-4a9c-be57-93db3f15fd6b`,
     title: "Burritos",
     cat: "burritos",
   },
@@ -50,40 +50,40 @@ export const categories = [
   },
 ];
 
-export const popularProducts = [
-  {
-    id: 1,
-    img: `${AsadaFries}`,
-  },
-  {
-    id: 2,
-    img: `${AsadaFries}`,
-  },
-  {
-    id: 3,
-    img: `${AsadaFries}`,
-  },
-  {
-    id: 4,
-    img: `${AsadaFries}`,
-  },
-  {
-    id: 5,
-    img: `${AsadaFries}`,
-  },
-  {
-    id: 6,
-    img: `${AsadaFries}`,
-  },
-  {
-    id: 7,
-    img: `${AsadaFries}`,
-  },
-  {
-    id: 8,
-    img: `${AsadaFries}`,
-  },
-];
+// export const popularProducts = [
+//   {
+//     id: 1,
+//     img: `${AsadaFries}`,
+//   },
+//   {
+//     id: 2,
+//     img: `${AsadaFries}`,
+//   },
+//   {
+//     id: 3,
+//     img: `${AsadaFries}`,
+//   },
+//   {
+//     id: 4,
+//     img: `${AsadaFries}`,
+//   },
+//   {
+//     id: 5,
+//     img: `${AsadaFries}`,
+//   },
+//   {
+//     id: 6,
+//     img: `${AsadaFries}`,
+//   },
+//   {
+//     id: 7,
+//     img: `${AsadaFries}`,
+//   },
+//   {
+//     id: 8,
+//     img: `${AsadaFries}`,
+//   },
+// ];
 
 export const extrasInfo = [
   {
