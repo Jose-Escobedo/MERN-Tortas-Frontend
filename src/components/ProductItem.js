@@ -17,6 +17,7 @@ const ProductItem = ({ item }) => {
   const quantity = 1;
   const [asadaBoolean, setAsadaBoolean] = useState();
   const [comboBoolean, setComboBoolean] = useState();
+  const [sopeBoolean, setSopeBoolean] = useState();
   const handleClick = (item) => {
     dispatch(addProduct({ ...item, quantity }));
     toast.success("Item has been added to Cart.", {
@@ -36,6 +37,11 @@ const ProductItem = ({ item }) => {
     } else {
       setComboBoolean(false);
     }
+    if (item.name === "3 Sopes") {
+      setSopeBoolean(true);
+    } else {
+      setSopeBoolean(false);
+    }
   }, []);
 
   return (
@@ -51,9 +57,11 @@ const ProductItem = ({ item }) => {
       )}
 
       <Info>
-        <Icon onClick={() => handleClick(item)}>
-          <ShoppingCartOutlined />
-        </Icon>
+        {sopeBoolean ? null : (
+          <Icon onClick={() => handleClick(item)}>
+            <ShoppingCartOutlined />
+          </Icon>
+        )}
         <Icon>
           <Link to={`/product/${item._id}`}>
             <SearchOutlined />
