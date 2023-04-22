@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import ChkTacos from "../images/chk-tacos.JPG";
 import { mobile } from "../responsive";
 import { useState } from "react";
 import { login } from "../redux/apiCalls";
@@ -158,7 +157,8 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     )
-    url(${ChkTacos}) center;
+    url("https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/cubana.jpg?alt=media&token=94876bed-3776-4093-9134-57f064c4ae7d")
+    center;
   display: flex;
   align-items: center;
   justify-content: center;
