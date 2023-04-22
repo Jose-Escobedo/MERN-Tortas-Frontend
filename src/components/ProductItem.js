@@ -9,7 +9,6 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { addProduct } from "../redux/cartRedux";
-import TortaCubana from "../images/cubana.jpg";
 import { useEffect, useState } from "react";
 
 const ProductItem = ({ item }) => {

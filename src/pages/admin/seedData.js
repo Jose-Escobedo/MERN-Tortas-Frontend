@@ -1,4 +1,3 @@
-import Cubana from "../../images/cubana.jpg";
 export const userData = [
   {
     name: "Jan",
@@ -162,7 +161,7 @@ export const productRows = [
   {
     id: 1,
     name: "Torta Cubana",
-    img: `${Cubana}`,
+    img: `https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/cubana.jpg?alt=media&token=94876bed-3776-4093-9134-57f064c4ae7d`,
     stock: 123,
     status: "active",
     price: "$12.00",
@@ -170,7 +169,7 @@ export const productRows = [
   {
     id: 2,
     name: "Torta Cubana",
-    img: `${Cubana}`,
+    img: `https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/cubana.jpg?alt=media&token=94876bed-3776-4093-9134-57f064c4ae7d`,
     stock: 123,
     status: "active",
     price: "$12.00",
@@ -178,63 +177,7 @@ export const productRows = [
   {
     id: 3,
     name: "Torta Cubana",
-    img: `${Cubana}`,
-    stock: 123,
-    status: "active",
-    price: "$12.00",
-  },
-  {
-    id: 4,
-    name: "Torta Cubana",
-    img: `${Cubana}`,
-    stock: 123,
-    status: "active",
-    price: "$12.00",
-  },
-  {
-    id: 5,
-    name: "Torta Cubana",
-    img: `${Cubana}`,
-    stock: 123,
-    status: "active",
-    price: "$12.00",
-  },
-  {
-    id: 6,
-    name: "Torta Cubana",
-    img: `${Cubana}`,
-    stock: 123,
-    status: "active",
-    price: "$12.00",
-  },
-  {
-    id: 7,
-    name: "Torta Cubana",
-    img: `${Cubana}`,
-    stock: 123,
-    status: "active",
-    price: "$12.00",
-  },
-  {
-    id: 8,
-    name: "Torta Cubana",
-    img: `${Cubana}`,
-    stock: 123,
-    status: "active",
-    price: "$12.00",
-  },
-  {
-    id: 9,
-    name: "Torta Cubana",
-    img: `${Cubana}`,
-    stock: 123,
-    status: "active",
-    price: "$12.00",
-  },
-  {
-    id: 10,
-    name: "Torta Cubana",
-    img: `${Cubana}`,
+    img: `https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/cubana.jpg?alt=media&token=94876bed-3776-4093-9134-57f064c4ae7d`,
     stock: 123,
     status: "active",
     price: "$12.00",

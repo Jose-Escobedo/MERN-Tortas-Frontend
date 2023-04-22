@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { publicRequest } from "../requestMethods";
-import tacoHuman from "../images/tacoHuman.png";
 
 const OrderList = ({ item }) => {
   const [products, setProducts] = useState([]);
@@ -34,9 +33,7 @@ const OrderList = ({ item }) => {
   return (
     <OrderListContainer>
       <OrderWrapper>
-        <OrderLogo>
-          <img src={tacoHuman} />
-        </OrderLogo>
+        <OrderLogo>{/* <img src={tacoHuman} /> */}</OrderLogo>
         <OrderDetails>
           <h2>{`${item.createdAt.slice(0, 10)}`}</h2>
           <h2>{`${item.products.map(

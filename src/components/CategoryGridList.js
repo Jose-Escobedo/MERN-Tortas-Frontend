@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import tacoHuman from "../images/tacoHuman.png";
 import { Link } from "react-router-dom";
 
 const CategoryGridList = ({ item, index }) => {
