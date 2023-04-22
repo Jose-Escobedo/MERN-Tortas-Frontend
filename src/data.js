@@ -1,5 +1,12 @@
 export const SliderItems = [
   {
+    id: "62d00602c020372b553c8944",
+    img: `https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/cubana.jpg?alt=media&token=94876bed-3776-4093-9134-57f064c4ae7d`,
+    title: "Torta Cubana",
+    desc: "Try Our Flavory Torta Cubana",
+    bg: "fbf0f4",
+  },
+  {
     id: "62d006c9c020372b553c8946",
     img: `https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/asada-fries-removebg-min.png?alt=media&token=7f7ebdcf-a22a-4566-bf8c-d0519bcb9c80`,
     title: "Asada Fries",
@@ -12,13 +19,6 @@ export const SliderItems = [
     title: "Pollo Con Mole",
     desc: "Try Our Tasty Pollo Con Mole",
     bg: "fcf1ed",
-  },
-  {
-    id: "638ba957773371cc8a0988bc",
-    img: `https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/taquitos-removebg-min.png?alt=media&token=5ff6816e-9c3b-4f23-b088-c499b0a8ea8c`,
-    title: "Taquitos",
-    desc: "Try Our Crispy Chicken Taquitos",
-    bg: "fbf0f4",
   },
 ];
 
