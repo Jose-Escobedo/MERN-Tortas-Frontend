@@ -16,7 +16,7 @@ const Slider = () => {
   const [product, setProduct] = useState([]);
 
   const getProduct = (slideItem) => {
-    fetch(`http://localhost:5000/api/products/find/${slideItem}`)
+    fetch(`https://tortasbackend.herokuapp.com/api/products/find/${slideItem}`)
       .then((response) => response.json())
       .then((data) => dispatch(addProduct({ ...data, quantity })))
       .catch((error) => console.log(error));
