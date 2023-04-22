@@ -216,7 +216,10 @@ const Cart = () => {
             <SummaryItem>
               <SummaryItemText>Subtotal</SummaryItemText>
               <SummaryItemPrice>
-                $ {cart.taxes.toFixed(2) == -0.0 ? 0.0 : cart.taxes.toFixed(2)}
+                ${" "}
+                {cart.subtotal.toFixed(2) == -0.0
+                  ? 0.0
+                  : cart.subtotal.toFixed(2)}
               </SummaryItemPrice>
             </SummaryItem>
             {/* <SummaryItem>
