@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 import Badge from "@material-ui/core/Badge";
