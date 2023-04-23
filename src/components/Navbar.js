@@ -9,12 +9,17 @@ import { Link } from "react-router-dom";
 import { logout } from "../redux/apiCalls";
 import tortaLogo from "../images/tortaslogo.svg";
 import { Link as LinkScroll } from "react-scroll";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const user = useSelector((state) => state.user.currentUser);
   const quantity = useSelector((state) => state.cart.quantity);
   const dispatch = useDispatch();
   const { isFetching, error } = useSelector((state) => state.user);
+
+  const location = useLocation();
+  const homepath = location.pathname.split("/")[0];
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -105,6 +110,9 @@ const Navbar = () => {
               </Badge>
             </NavItem>
           </Link>
+          <NavItem id="hamburger">
+            <GiHamburgerMenu />
+          </NavItem>
         </Right>
       </Wrapper>
     </Container>
@@ -198,6 +206,18 @@ const Right = styled.div`
   align-items: center;
   justify-content: flex-end;
   ${mobile({ flex: 2, justifyContent: "center" })}
+  #hamburger {
+    display: none;
+  }
+  @media screen and (max-width: 1238px) {
+    font-size: 1rem;
+  }
+  @media screen and (max-width: 1124px) {
+    //hamburger and cart
+    #hamburger {
+      display: block;
+    }
+  }
 `;
 
 const NavItem = styled.div`
