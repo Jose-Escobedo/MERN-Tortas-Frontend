@@ -88,17 +88,19 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <NavItem>
-                <LinkScroll
-                  style={{ fontSize: "1rem", fontWeight: "bold" }}
-                  offset={-60}
-                  to="menu"
-                  spy={true}
-                  smooth={true}
-                >
-                  MENU
-                </LinkScroll>
-              </NavItem>
+              {homeCheck ? (
+                <NavItem>
+                  <LinkScroll
+                    style={{ fontSize: "1rem", fontWeight: "bold" }}
+                    offset={-60}
+                    to="menu"
+                    spy={true}
+                    smooth={true}
+                  >
+                    MENU
+                  </LinkScroll>
+                </NavItem>
+              ) : null}
               <NavItem>
                 <Link
                   to="/register"
