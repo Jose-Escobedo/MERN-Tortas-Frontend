@@ -18,13 +18,25 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const { isFetching, error } = useSelector((state) => state.user);
 
+  const [homeCheck, setHomeCheck] = useState();
+
   const location = useLocation();
-  const homepath = location.pathname.split("/")[0];
+  const homepath = location.pathname;
 
   const handleClick = (e) => {
     e.preventDefault();
     logout(dispatch, user);
   };
+
+  useEffect(() => {
+    if (homepath === "/") {
+      setHomeCheck(true);
+      console.log(homepath);
+    } else {
+      setHomeCheck(false);
+      console.log(homepath);
+    }
+  }, []);
 
   return (
     <Container>
@@ -42,17 +54,20 @@ const Navbar = () => {
         <Right>
           {user ? (
             <>
-              <NavItem>
-                <LinkScroll
-                  style={{ fontSize: "1rem", fontWeight: "bold" }}
-                  offset={-60}
-                  to="menu"
-                  spy={true}
-                  smooth={true}
-                >
-                  MENU
-                </LinkScroll>
-              </NavItem>
+              {homeCheck ? (
+                <NavItem>
+                  <LinkScroll
+                    style={{ fontSize: "1rem", fontWeight: "bold" }}
+                    offset={-60}
+                    to="menu"
+                    spy={true}
+                    smooth={true}
+                  >
+                    MENU
+                  </LinkScroll>
+                </NavItem>
+              ) : null}
+
               <NavItem>
                 <OrderButton>
                   <Link
