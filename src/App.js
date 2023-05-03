@@ -19,7 +19,7 @@ import InsufficientPickupSubtotal from "./pages/InsufficientPickupSubtotal";
 import Accessibility from "./pages/Accessibility";
 import RecentOrder from "./pages/admin/RecentOrder";
 import Error404 from "./pages/Error404";
-import Menu from "./components/Menu";
+import Menu from "./pages/Menu";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
