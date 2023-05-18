@@ -20,6 +20,7 @@ import Accessibility from "./pages/Accessibility";
 import RecentOrder from "./pages/admin/RecentOrder";
 import Error404 from "./pages/Error404";
 import Menu from "./pages/Menu";
+import OrderLookup from "./pages/OrderLookup";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -75,6 +76,7 @@ function App() {
           path="/orders"
           element={user ? <Orders /> : <Navigate to="/" />}
         />
+        <Route exact path="/order-lookup" element={<OrderLookup />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </>
