@@ -273,6 +273,9 @@ const MobileMenuCatLink = styled.button`
   }
 
   @media screen and (max-width: 1220px) {
+    width: 50%;
+  }
+  @media screen and (max-width: 480px) {
     width: 80%;
   }
 `;
