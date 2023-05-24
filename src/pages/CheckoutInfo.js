@@ -614,6 +614,7 @@ const CheckoutInfo = ({ addNewFormData }) => {
                       type="text"
                       id="address"
                       ref={searchInput}
+                      onKeyDown={(e) => handleKeyDown(e)}
                       placeholder="DELIVERY ADDRESS"
                       name="dropoff_location"
                       required
