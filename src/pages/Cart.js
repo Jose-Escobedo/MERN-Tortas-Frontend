@@ -286,6 +286,11 @@ const TopButton = styled.button`
   background-color: ${(props) =>
     props.type === "filled" ? "black" : "transparent"};
   color: ${(props) => props.type === "filled" && "white"};
+  @media screen and (max-width: 660px) {
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+  }
 `;
 
 const TopTexts = styled.div`
