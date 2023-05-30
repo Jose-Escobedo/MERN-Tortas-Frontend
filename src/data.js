@@ -28,18 +28,21 @@ export const categories = [
     img: `https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/cubana.jpg?alt=media&token=94876bed-3776-4093-9134-57f064c4ae7d`,
     title: "Tortas",
     cat: "tortas",
+    alt: "Image of a torta cubana for the Tortas Category",
   },
   {
     id: 2,
     img: `https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/burrito-wet.JPG?alt=media&token=8f2af152-f2f7-4a9c-be57-93db3f15fd6b`,
     title: "Burritos",
     cat: "burritos",
+    alt: "Image of a wet burrito for the Burritos Category",
   },
   {
     id: 3,
     img: `https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/tacos-buche.jpeg?alt=media&token=7ed5f819-0c85-45ba-b779-68dbaffffb27`,
     title: "Tacos",
     cat: "tacos",
+    alt: "Image of a taco for the Tacos Category",
   },
 ];
 

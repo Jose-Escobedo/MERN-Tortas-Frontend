@@ -6,7 +6,7 @@ const CategoryItem = ({ item }) => {
   return (
     <Container>
       <Link to={`/products/${item.cat}`}>
-        <Image src={item.img} />
+        <Image src={item.img} alt={item.alt} />
         <Info>
           <Title>{item.title}</Title>
           <Button>ORDER NOW</Button>
