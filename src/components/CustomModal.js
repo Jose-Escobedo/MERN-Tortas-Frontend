@@ -20,7 +20,7 @@ const CustomModal = ({ open, menuComboItems, close, handleFirstItem }) => {
                   type="radio"
                   value={i.value}
                   name={i.option}
-                  id={"Combo-Item"}
+                  id={"Combo-Item-One"}
                   onChange={(e) => handleFirstItem(e)}
                 />
                 {i.option}
