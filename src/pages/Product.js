@@ -1234,6 +1234,10 @@ const SelectContainer = styled.div`
   h2 {
     color: red;
     font-size: 1.2rem;
+    padding: 10px;
+    @media screen and (max-width: 550px) {
+      font-size: 0.8rem;
+    }
   }
   .faspace {
     padding-left: 7px;
