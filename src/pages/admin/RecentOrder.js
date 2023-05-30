@@ -139,15 +139,28 @@ const RecentOrder = () => {
               2
             )}`}</AdminOrderTotal>
             <AdminOrderTotal>{`TIP: $ ${recentOrder?.tip}`}</AdminOrderTotal>
-            <DoordashSupportId>
-              {`Tracking Link: `}
-              <a href={`${recentOrder?.doordashTrackingLink}`}>
-                {recentOrder?.doordashTrackingLink}
-              </a>
-            </DoordashSupportId>
-            <DoordashSupportId>{`Doordash Reference: #${Number(
-              recentOrder?.doordashSupportId
-            )}`}</DoordashSupportId>
+            {recentOrder.doordashTrackingLink ? (
+              <DoordashSupportId>
+                {`Tracking Link: `}
+                <a href={`${recentOrder?.doordashTrackingLink}`}>
+                  {recentOrder?.doordashTrackingLink}
+                </a>
+              </DoordashSupportId>
+            ) : (
+              <h1>
+                Doordash Driver has not been dispatched please call Admin.
+              </h1>
+            )}
+
+            {recentOrder.doordashSupportId ? (
+              <DoordashSupportId>{`Doordash Reference: #${Number(
+                recentOrder?.doordashSupportId
+              )}`}</DoordashSupportId>
+            ) : (
+              <h1>
+                Doordash Driver has not been dispatched please call Admin.
+              </h1>
+            )}
           </AdminOrderWrapper>
         </AdminOrderContainer>
       </AdminContainer>

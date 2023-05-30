@@ -824,6 +824,7 @@ const Product = () => {
                           <option value="" disabled>
                             SELECT A TORTILLA
                           </option>
+                          <option value="NO TORTILLAS">NO TORTILLAS</option>
                           <option value="CORN TORTILLA">CORN TORTILLA</option>
                           <option value="FLOUR TORTILLA">FLOUR TORTILLA</option>
                           <option value="HOMEMADE TORTILLA">
@@ -864,6 +865,7 @@ const Product = () => {
                           <option value="" disabled>
                             SELECT A TORTILLA
                           </option>
+                          <option value="NO TORTILLAS">NO TORTILLAS</option>
                           <option value="CORN TORTILLA">CORN TORTILLA</option>
                           <option value="FLOUR TORTILLA">FLOUR TORTILLA</option>
                           <option value="HOMEMADE TORTILLA">
@@ -914,6 +916,7 @@ const Product = () => {
                           <option value="" disabled>
                             SELECT A TORTILLA
                           </option>
+                          <option value="NO TORTILLAS">NO TORTILLAS</option>
                           <option value="CORN TORTILLA">CORN TORTILLA</option>
                           <option value="FLOUR TORTILLA">FLOUR TORTILLA</option>
                           <option value="HOMEMADE TORTILLA">
@@ -943,6 +946,7 @@ const Product = () => {
                         <option value="" disabled>
                           SELECT A TORTILLA
                         </option>
+                        <option value="NO TORTILLAS">NO TORTILLAS</option>
                         <option value="CORN TORTILLA">CORN TORTILLA</option>
                         <option value="FLOUR TORTILLA">FLOUR TORTILLA</option>
                         <option value="HOMEMADE TORTILLA">
@@ -1057,6 +1061,7 @@ const Product = () => {
                   <option value="" disabled>
                     SELECT A TORTILLA
                   </option>
+                  <option value="NO TORTILLAS">NO TORTILLAS</option>
                   <option value="CORN TORTILLA">CORN TORTILLA</option>
                   <option value="FLOUR TORTILLA">FLOUR TORTILLA</option>
                   <option value="HOMEMADE TORTILLA">HOMEMADE $0.50</option>
@@ -1207,9 +1212,8 @@ const SelectContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border-right: 0px;
-    border-left: 0px;
-    border-top: 0px;
+    border: 1px solid black;
+    border-radius: 10px;
     &:hover {
       border: 1px solid aquamarine;
       transition: all 0.5s ease-in-out;
@@ -1247,11 +1251,10 @@ const SelectContainer = styled.div`
     display: inline-block;
     background-color: transparent;
     position: relative;
-    border: 1px solid teal;
+    border: 1px solid black;
+    border-radius: 10px;
     cursor: pointer;
-    border-top: none;
-    border-right: none;
-    border-left: none;
+
     @media screen and (max-width: 550px) {
       width: 80%;
       padding: 10px;
