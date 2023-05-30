@@ -943,7 +943,9 @@ const Product = () => {
                         <option value="" disabled>
                           SELECT A TORTILLA
                         </option>
-                        <option value="NO TORTILLAS">NO TORTILLAS</option>
+                        {tacos ? null : (
+                          <option value="NO TORTILLAS">NO TORTILLAS</option>
+                        )}
                         <option value="CORN TORTILLA">CORN TORTILLA</option>
                         <option value="FLOUR TORTILLA">FLOUR TORTILLA</option>
                         <option value="HOMEMADE TORTILLA">
@@ -1058,7 +1060,10 @@ const Product = () => {
                   <option value="" disabled>
                     SELECT A TORTILLA
                   </option>
-                  <option value="NO TORTILLAS">NO TORTILLAS</option>
+                  {tacos ? null : (
+                    <option value="NO TORTILLAS">NO TORTILLAS</option>
+                  )}
+
                   <option value="CORN TORTILLA">CORN TORTILLA</option>
                   <option value="FLOUR TORTILLA">FLOUR TORTILLA</option>
                   <option value="HOMEMADE TORTILLA">HOMEMADE $0.50</option>
