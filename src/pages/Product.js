@@ -37,6 +37,7 @@ const Product = () => {
   const [itemWarning, setItemWarning] = useState(false);
   const [checkPathName, setCheckPathName] = useState(false);
   const [burritos, setBurritos] = useState(false);
+  const [tacoTortilla, setTacoTortilla] = useState(false);
   const blankCombo = {
     firstItem: "",
     secondItem: "",
@@ -123,6 +124,20 @@ const Product = () => {
     ) {
       setBurritos(true);
     } else setBurritos(false);
+
+    // if Taco
+    if (
+      id === "638ba9e1773371cc8a0988be" ||
+      id === "638baa24773371cc8a0988bf" ||
+      id === "638baaa2773371cc8a0988c1" ||
+      id === "638baac1773371cc8a0988c2" ||
+      id === "638bab12773371cc8a0988c4" ||
+      id === "638bab30773371cc8a0988c5" ||
+      id === "638bab51773371cc8a0988c6" ||
+      id === "638bab6f773371cc8a0988c7"
+    ) {
+      setTacoTortilla(true);
+    } else setTacoTortilla(false);
 
     //if Hardshell Taco change Component
     if (id === "638baa68773371cc8a0988c0") {
@@ -943,7 +958,7 @@ const Product = () => {
                         <option value="" disabled>
                           SELECT A TORTILLA
                         </option>
-                        {tacos ? null : (
+                        {tacoTortilla ? null : (
                           <option value="NO TORTILLAS">NO TORTILLAS</option>
                         )}
                         <option value="CORN TORTILLA">CORN TORTILLA</option>
@@ -1060,7 +1075,7 @@ const Product = () => {
                   <option value="" disabled>
                     SELECT A TORTILLA
                   </option>
-                  {tacos ? null : (
+                  {tacoTortilla ? null : (
                     <option value="NO TORTILLAS">NO TORTILLAS</option>
                   )}
 
