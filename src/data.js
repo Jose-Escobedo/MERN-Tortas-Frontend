@@ -5,6 +5,7 @@ export const SliderItems = [
     title: "Asada Fries",
     desc: "Try Our Delicious Asada Fries",
     bg: "f5fafd",
+    alt: "Image of a yellow plate with Asada Fries for a photo slider.",
   },
   {
     id: "62d00602c020372b553c8944",
@@ -12,6 +13,7 @@ export const SliderItems = [
     title: "Torta Cubana",
     desc: "Try Our Flavory Torta Cubana",
     bg: "fbf0f4",
+    alt: "Image of a torta cubana with melthing cheese for two second image of the photo slider.",
   },
   {
     id: "62d00814c020372b553c894a",
@@ -19,6 +21,7 @@ export const SliderItems = [
     title: "Pollo Con Mole",
     desc: "Try Our Tasty Pollo Con Mole",
     bg: "fcf1ed",
+    alt: "Image of a green plate with pollo con mole dish for the final image in the photo slider.",
   },
 ];
 
