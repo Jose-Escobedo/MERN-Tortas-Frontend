@@ -13,6 +13,7 @@ const ProductList = () => {
   const [filters, setFilter] = useState({});
   const [sort, setSort] = useState();
   const [catImageLink, setCatImageLink] = useState("");
+  const [altCatImageText, setAltCatImageText] = useState();
 
   const handleFilter = (e) => {
     const value = e.target.value;
@@ -24,14 +25,21 @@ const ProductList = () => {
 
   useEffect(() => {
     if (cat === "tortas") {
+      setAltCatImageText(
+        "Torta cubana on a yellow plate with cheese melting in the middle."
+      );
       setCatImageLink(
         "https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/cubana.jpg?alt=media&token=94876bed-3776-4093-9134-57f064c4ae7d"
       );
     } else if (cat === "burritos") {
+      setAltCatImageText(
+        "Wet Burrito with cheese and enchilada sauce all over it."
+      );
       setCatImageLink(
         "https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/burrito-wet.JPG?alt=media&token=8f2af152-f2f7-4a9c-be57-93db3f15fd6b"
       );
     } else {
+      setAltCatImageText("Tacos de buche with onions and cilantro.");
       setCatImageLink(
         "https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/tacos-buche.jpeg?alt=media&token=7ed5f819-0c85-45ba-b779-68dbaffffb27"
       );
@@ -44,7 +52,7 @@ const ProductList = () => {
       <TitleAndImageWrapper>
         <Title>{cat.toUpperCase()}</Title>
         <CategoryImageContainer>
-          <CategoryImage src={catImageLink} />
+          <CategoryImage src={catImageLink} alt={altCatImageText} />
         </CategoryImageContainer>
       </TitleAndImageWrapper>
       <FilterContainer>
@@ -63,19 +71,14 @@ const ProductList = () => {
 };
 
 const Container = styled.div`
-  background: linear-gradient(
-    90deg,
-    rgba(24, 24, 71, 1) 0%,
-    rgba(10, 10, 23, 1) 35%,
-    rgba(0, 0, 0, 1) 100%
-  );
+  background: white;
 `;
 const TitleAndImageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: black;
 `;
 const Title = styled.h1`
   margin-top: 20vh;

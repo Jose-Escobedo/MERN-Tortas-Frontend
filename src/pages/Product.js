@@ -1056,7 +1056,7 @@ const Product = () => {
       ) : (
         <Wrapper>
           <ImgContainer>
-            <Image src={product.img}></Image>
+            <Image src={product.img} alt={product.alt}></Image>
           </ImgContainer>
           <InfoContainer>
             <TitleDescPrice>
