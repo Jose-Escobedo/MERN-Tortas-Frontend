@@ -86,7 +86,10 @@ const Cart = () => {
               ) : (
                 <div id="empty-cart">
                   <h1>Your Cart is empty...</h1>
-                  <img src={emptyCartSvg} />
+                  <img
+                    src={emptyCartSvg}
+                    alt="Illustration of a women next to a Huge phone ordering food."
+                  />
                 </div>
               )
             ) : (
@@ -111,7 +114,7 @@ const Cart = () => {
                       if (item.img === "") {
                         return null;
                       } else {
-                        return <Image src={item.img} />;
+                        return <Image src={item.img} alt={item.alt} />;
                       }
                     })()}
 
