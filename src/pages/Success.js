@@ -28,7 +28,15 @@ const Success = () => {
             viewBox="0 0 819 560"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="Delivery guy succesfully delivering food. - An illustration of a delivery guy holding a package that was successfully delivered."
           >
+            <title>Delivery guy succesfully delivering food.</title>
+            <desc>
+              An illustration of a delivery guy holding a package that was
+              successfully delivered.
+            </desc>
+
             <path
               id="Vector"
               d="M57.0092 537.026C57.0092 537.026 -80.0655 374.253 114.845 321.956C309.756 269.66 361.114 224.912 453.263 89.3776C545.412 -46.1567 941.865 -9.89033 780.599 543.285L57.0092 537.026Z"

@@ -23,12 +23,7 @@ export const InsufficientSubtotalContainer = styled.div`
   align-items: center;
   height: 100vh;
   width: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(24, 24, 71, 1) 0%,
-    rgba(10, 10, 23, 1) 35%,
-    rgba(0, 0, 0, 1) 100%
-  );
+  background: white;
 `;
 
 const MinimumText = styled.div`
