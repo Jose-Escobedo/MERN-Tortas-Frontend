@@ -57,7 +57,10 @@ const Navbar = () => {
             <TortasLogo src={tortaLogo} onClick={handleLogoClick}></TortasLogo>
           ) : (
             <Link to="/">
-              <TortasLogo src={tortaLogo}></TortasLogo>
+              <TortasLogo
+                alt="An illustration of a Torta Logo for Tortas Mexico Studio City."
+                src={tortaLogo}
+              ></TortasLogo>
             </Link>
           )}
         </Left>

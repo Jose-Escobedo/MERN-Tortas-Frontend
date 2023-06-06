@@ -160,6 +160,7 @@ const OrderLookup = () => {
           <LookupImgWrapper>
             <img
               id="lookup-img"
+              alt="An illustation of an astronaut laying down on a taco."
               src="https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/16305636_3700_2_01-removebg-preview.png?alt=media&token=f9c79de9-bb06-4e74-a4f4-091c18891379"
             ></img>
           </LookupImgWrapper>

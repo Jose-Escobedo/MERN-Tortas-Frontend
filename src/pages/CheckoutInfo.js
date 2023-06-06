@@ -560,7 +560,10 @@ const CheckoutInfo = ({ addNewFormData }) => {
                     <h1 style={{ color: "red" }} className="check-radius">
                       Delivery distance too far.
                     </h1>
-                    <img src="https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/astro-far.png?alt=media&token=88d09c17-b7ae-42ee-a0a1-886a22c381b7"></img>
+                    <img
+                      alt="An illustration of an astronaut holding onto a balloon."
+                      src="https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/astro-far.png?alt=media&token=88d09c17-b7ae-42ee-a0a1-886a22c381b7"
+                    ></img>
                   </DistanceImageWrapper>
                 ) : null}
                 <form id="form" className="form" onSubmit={handleFormSubmit}>
