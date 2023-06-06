@@ -802,7 +802,7 @@ const ContactFormStyled = styled.div`
     border-radius: 0.2em;
     border: transparent;
     padding-top: 0.2em;
-    background: linear-gradient(darkcyan, darkblue) padding-box;
+    background: black;
     cursor: pointer;
   }
 
