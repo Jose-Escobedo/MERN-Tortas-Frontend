@@ -152,7 +152,7 @@ const RecentOrder = () => {
               </h1>
             )}
 
-            {recentOrder.doordashSupportId ? (
+            {recentOrder?.doordashSupportId ? (
               <DoordashSupportId>{`Doordash Reference: #${Number(
                 recentOrder?.doordashSupportId
               )}`}</DoordashSupportId>
