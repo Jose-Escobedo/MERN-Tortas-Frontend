@@ -139,7 +139,7 @@ const RecentOrder = () => {
               2
             )}`}</AdminOrderTotal>
             <AdminOrderTotal>{`TIP: $ ${recentOrder?.tip}`}</AdminOrderTotal>
-            {recentOrder.doordashTrackingLink ? (
+            {recentOrder?.doordashTrackingLink ? (
               <DoordashSupportId>
                 {`Tracking Link: `}
                 <a href={`${recentOrder?.doordashTrackingLink}`}>
