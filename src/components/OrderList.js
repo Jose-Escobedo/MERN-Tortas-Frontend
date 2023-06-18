@@ -33,7 +33,7 @@ const OrderList = ({ item }) => {
   return (
     <OrderListContainer>
       <OrderWrapper>
-        <OrderLogo>{/* <img src={tacoHuman} /> */}</OrderLogo>
+        {/* <OrderLogo><img src={tacoHuman} /></OrderLogo> */}
         <OrderDetails>
           <h2>{`${item.createdAt.slice(0, 10)}`}</h2>
           <h2>{`${item.products.map(
@@ -45,6 +45,8 @@ const OrderList = ({ item }) => {
             currency: "USD",
           })}`}</h2>
           {pickupObj ? <h2>PICKUP</h2> : <h2>DELIVERY</h2>}
+          {pickupObj ? <h2>Pickup Date: {item.pickup_date} </h2> : null}
+          {pickupObj ? <h2>Pickup Time: {item.pickup_time} </h2> : null}
         </OrderDetails>
       </OrderWrapper>
     </OrderListContainer>
