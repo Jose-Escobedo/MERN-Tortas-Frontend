@@ -54,7 +54,11 @@ const Navbar = () => {
       <Wrapper>
         <Left>
           {homeCheck ? (
-            <TortasLogo src={tortaLogo} onClick={handleLogoClick}></TortasLogo>
+            <TortasLogo
+              alt="An illustration of a Torta Logo for Tortas Mexico Studio City."
+              src={tortaLogo}
+              onClick={handleLogoClick}
+            ></TortasLogo>
           ) : (
             <Link to="/">
               <TortasLogo
