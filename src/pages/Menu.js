@@ -3,10 +3,18 @@ import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import MenuGridList from "../components/MenuGridList";
+import { Helmet } from "react-helmet-async";
 
 const Menu = () => {
   return (
     <MenuPageContainer>
+      <Helmet>
+        <title>Menu</title>
+        <meta
+          name="description"
+          content="Discover our mouthwatering menu of authentic Mexican tortas at Tortas Mexico Studio City. Experience the best flavors of Mexico in every bite!"
+        />
+      </Helmet>
       <Navbar></Navbar>
       <TitleContainer>
         <Title>Menu</Title>
