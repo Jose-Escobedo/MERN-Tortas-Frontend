@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -27,6 +28,14 @@ const Login = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Login</title>
+        <meta
+          name="description"
+          content="Convenient login for Tortas Mexico Studio City. Access exclusive deals and personalized dining experiences. Order with ease!"
+        />
+        <link rel="canonical" href="/login"></link>
+      </Helmet>
       <Wrapper>
         <Link
           to="/"

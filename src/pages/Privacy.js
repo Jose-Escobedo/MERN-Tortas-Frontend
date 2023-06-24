@@ -1,9 +1,18 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
 
 const Privacy = () => {
   return (
     <Wrapper>
+      <Helmet>
+        <title>Privacy Policy</title>
+        <meta
+          name="description"
+          content="Your privacy matters at Tortas Mexico Studio City. Read our policy to understand how we protect your information and ensure a secure experience."
+        />
+        <link rel="canonical" href="/privacy"></link>
+      </Helmet>
       <h1>Privacy Policy of Tortas Mexico Studio City</h1>
 
       <p>

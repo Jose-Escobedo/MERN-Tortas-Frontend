@@ -14,6 +14,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import StripeCheckout from "./StripeCheckout";
 import moment from "moment";
 import DateAndTime from "../components/DateAndTime";
+import { Helmet } from "react-helmet-async";
 
 const currentDate = moment().toISOString();
 
@@ -396,6 +397,14 @@ const PickupInfo = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Pickup Checkout</title>
+        <meta
+          name="description"
+          content="Seamless checkout at Tortas Mexico Studio City. Complete your order with ease and savor the flavors of Mexico!"
+        />
+        <link rel="canonical" href="/pickupcheckout"></link>
+      </Helmet>
       {isGreaterThanFive ? (
         <>
           <Navbar />

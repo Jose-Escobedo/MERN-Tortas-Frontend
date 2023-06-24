@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import moment from "moment";
 import ClosedStore from "./ClosedStore";
+import { Helmet } from "react-helmet-async";
 
 const CheckoutInfo = ({ addNewFormData }) => {
   const currentDate = moment().toISOString();
@@ -543,6 +544,14 @@ const CheckoutInfo = ({ addNewFormData }) => {
 
   return (
     <>
+      <Helmet>
+        <title>Delivery Checkout</title>
+        <meta
+          name="description"
+          content="Seamless checkout at Tortas Mexico Studio City. Complete your order with ease and savor the flavors of Mexico!"
+        />
+        <link rel="canonical" href="/deliverycheckout"></link>
+      </Helmet>
       {openStore ? (
         <>
           <Navbar />

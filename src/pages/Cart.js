@@ -16,6 +16,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { useEffect, useState } from "react";
 import emptyCartSvg from "../images/groceries.svg";
 import Loader from "../components/Loader";
+import { Helmet } from "react-helmet-async";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -62,6 +63,14 @@ const Cart = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Cart</title>
+        <meta
+          name="description"
+          content="Your delicious Tortas await! Review and finalize your order seamlessly on the Tortas Mexico Studio City cart page."
+        />
+        <link rel="canonical" href="/cart"></link>
+      </Helmet>
       <Navbar />
       <Wrapper>
         <Top>

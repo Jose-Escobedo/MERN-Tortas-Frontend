@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -92,6 +93,14 @@ const Register = () => {
   };
   return (
     <Container>
+      <Helmet>
+        <title>Register</title>
+        <meta
+          name="description"
+          content="Join Tortas Mexico Studio City's community! Register for exclusive perks, online ordering, and personalized updates."
+        />
+        <link rel="canonical" href="/register"></link>
+      </Helmet>
       <Wrapper>
         <Link
           to="/"

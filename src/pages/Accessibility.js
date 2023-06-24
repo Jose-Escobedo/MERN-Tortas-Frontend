@@ -2,10 +2,19 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import { Helmet } from "react-helmet-async";
 
 const Accessibility = () => {
   return (
     <>
+      <Helmet>
+        <title>Accessibility</title>
+        <meta
+          name="description"
+          content="Ensuring accessibility for all at Tortas Mexico Studio City. Discover our commitment to providing an inclusive dining experience."
+        />
+        <link rel="canonical" href="/accessibility"></link>
+      </Helmet>
       <Navbar />
       <AccessibilityContainer>
         <AccessibilityText>
