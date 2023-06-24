@@ -14,6 +14,7 @@ const Menu = () => {
           name="description"
           content="Discover our mouthwatering menu of authentic Mexican tortas at Tortas Mexico Studio City. Experience the best flavors of Mexico in every bite!"
         />
+        <link rel="canonical" href="/menu"></link>
       </Helmet>
       <Navbar></Navbar>
       <TitleContainer>
