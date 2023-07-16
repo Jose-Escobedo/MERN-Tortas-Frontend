@@ -9,6 +9,10 @@ import { useEffect, useMemo, useState } from "react";
 import moment from "moment";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { io } from "socket.io-client";
+import sound from "./Assets/smb_powerup.wav";
+import AdminModal from "../../components/AdminModal";
+const socket = io.connect("http://tortasbackend.herokuapp.com");
 
 const AdminHome = () => {
   const user = useSelector((state) => state.user.currentUser);
@@ -18,7 +22,34 @@ const AdminHome = () => {
     JSON.parse(localStorage.getItem("persist:root"))?.user || "{}"
   )?.currentUser?.accessToken;
 
-  useEffect(() => {
+  const [openModal, setOpenModal] = useState(true);
+
+  const play = () => {
+    new Audio(sound).play();
+  };
+
+  // useEffect(() => {
+  //   if (admin) {
+  //     fetch("https://tortasbackend.herokuapp.com/api/orders/?new=true", {
+  //       method: "GET",
+  //       headers: {
+  //         Accept: "application/json",
+  //         "Content-Type": "application/json",
+  //         authorization: "Bearer " + TOKEN,
+  //       },
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setRecentOrders(data);
+  //       });
+  //   } else {
+  //     console.log("ERROR 404");
+  //   }
+  // }, []);
+
+  function pollingServerForOrders(curr) {
+    console.log("Checking for orders...");
+
     if (admin) {
       fetch("https://tortasbackend.herokuapp.com/api/orders/?new=true", {
         method: "GET",
@@ -35,16 +66,33 @@ const AdminHome = () => {
     } else {
       console.log("ERROR 404");
     }
+  }
+
+  useEffect(() => {
+    pollingServerForOrders();
+    socket.on("NewOrder", () => {
+      console.log("New Order!");
+      pollingServerForOrders();
+      play();
+    });
   }, []);
 
   return (
     <>
       <AdminNavbar />
       <AdminContainer>
+        <AdminModal open={openModal} close={() => setOpenModal(false)} />
         <Sidebar />
         <div className="home">
           <FeaturedInfo />
           <AdminOrderContainer>
+            <Button
+              id="modalbtn1"
+              className="btn"
+              onClick={() => setOpenModal(true)}
+            >
+              Order Sound
+            </Button>
             <AdminOrderWrapper>
               {recentOrders.map((order, index) => {
                 return (
@@ -93,6 +141,30 @@ const AdminContainer = styled.div`
     display: flex;
     margin: 20px;
   }
+`;
+
+const Button = styled.button`
+  display: none;
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  &:hover {
+    border: 1px solid aquamarine;
+    transition: all 0.5s ease-in-out;
+    background-color: black;
+    h2 {
+      color: white;
+    }
+    &:first-child {
+      color: white;
+    }
+  }
+  &:first-child {
+    color: teal;
+    font-size: 1rem;
+  } */
 `;
 
 const AdminOrderContainer = styled.div``;
