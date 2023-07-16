@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import { io } from "socket.io-client";
 import sound from "./Assets/smb_powerup.wav";
 import AdminModal from "../../components/AdminModal";
-const socket = io.connect("http://tortasbackend.herokuapp.com");
+const socket = io.connect("https://tortasbackend.herokuapp.com");
 
 const AdminHome = () => {
   const user = useSelector((state) => state.user.currentUser);
