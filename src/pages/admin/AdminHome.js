@@ -97,14 +97,7 @@ const AdminHome = () => {
               {recentOrders.map((order, index) => {
                 return (
                   <RecentOrderNameContainer key={index}>
-                    <Link
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                      }}
-                      to={`/orders/${order._id}`}
-                    >
+                    <Link className={"link-styles"} to={`/orders/${order._id}`}>
                       <RecentOrderName>
                         {`${order.dropoff_contact_given_name}` + " "}
                         {`${Array.from(order.dropoff_contact_family_name)[0]}` +
@@ -140,6 +133,16 @@ const AdminContainer = styled.div`
   .homeWidgets {
     display: flex;
     margin: 20px;
+  }
+
+  .link-styles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: green;
+    &:visited {
+      color: black;
+    }
   }
 `;
 
