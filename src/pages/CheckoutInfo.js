@@ -35,6 +35,11 @@ const CheckoutInfo = ({ addNewFormData }) => {
   const [isPlaceChange, setIsPlaceChange] = useState(false);
   const [isPlaceText, setIsPlaceText] = useState(false);
 
+  const [todaySelect, setTodaySelect] = useState();
+  const [sundayInt, setSundayInt] = useState(false);
+  const [nextDay, setNextDay] = useState();
+  const [orderTimeDate, setOrderTimeDate] = useState();
+
   const mapApiJs = "https://maps.googleapis.com/maps/api/js";
   const apiKey = process.env.REACT_APP_PLACES;
 
