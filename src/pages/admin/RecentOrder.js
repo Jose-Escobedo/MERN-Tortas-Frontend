@@ -18,6 +18,7 @@ const RecentOrder = () => {
   )?.currentUser?.accessToken;
 
   const currentDate = moment().toISOString();
+  const [doordashToken, setDoordashToken] = useState();
 
   useEffect(() => {
     fetch(`https://tortasbackend.herokuapp.com/api/orders/find/order/${id}`, {
@@ -33,6 +34,20 @@ const RecentOrder = () => {
         console.log(data);
         setRecentOrder(data);
       });
+
+    fetch(`https://tortasbackend.herokuapp.com/api/admin/doordashPatch`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        authorization: "Bearer " + TOKEN,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setDoordashToken(data);
+      });
   }, [id]);
 
   const handlePrepTime = (e) => {
@@ -41,43 +56,53 @@ const RecentOrder = () => {
     const externalDDid = String(recentOrder._id);
 
     if (e.target.value === 0) {
-      fetch(
-        `https://openapi.doordash.com/drive/v2/deliveries/${externalDDid}`,
-        {
-          method: "PATCH",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            pickup_time: moment().toISOString(),
-          }),
-        }
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
+      const body = JSON.stringify({
+        pickup_time: moment().toISOString(),
+      });
+
+      axios
+        .patch(
+          `https://openapi.doordash.com/drive/v2/deliveries/${externalDDid}`,
+          body,
+          {
+            method: "PATCH",
+            headers: {
+              Authorization: "Bearer " + doordashToken,
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then(function (response) {
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
         });
     } else {
-      fetch(
-        `https://openapi.doordash.com/drive/v2/deliveries/${externalDDid}`,
-        {
-          method: "PATCH",
-          // headers: {
-          //   Accept: "application/json",
-          //   "Content-Type": "application/json",
-          // },
-          body: JSON.stringify({
-            pickup_time: moment(currentDate)
-              .add(timeAdded, "m")
-              .toDate()
-              .toISOString(),
-          }),
-        }
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
+      const body = JSON.stringify({
+        pickup_time: moment(currentDate)
+          .add(timeAdded, "m")
+          .toDate()
+          .toISOString(),
+      });
+
+      axios
+        .patch(
+          `https://openapi.doordash.com/drive/v2/deliveries/${externalDDid}`,
+          body,
+          {
+            method: "PATCH",
+            headers: {
+              Authorization: "Bearer " + doordashToken,
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then(function (response) {
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
         });
     }
   };

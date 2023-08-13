@@ -12,6 +12,7 @@ import { v4 as uuidv4 } from "uuid";
 import moment from "moment";
 import ClosedStore from "./ClosedStore";
 import { Helmet } from "react-helmet-async";
+import DateAndTime from "../components/DateAndTime";
 
 const CheckoutInfo = ({ addNewFormData }) => {
   const currentDate = moment().toISOString();
@@ -50,6 +51,15 @@ const CheckoutInfo = ({ addNewFormData }) => {
     ["Saturday", 9.3, 20.3], // we are closed, sorry!
   ];
   const day = weekdays[n];
+
+  const blankDateTime = {
+    pickupDate: "",
+    pickupTime: "",
+  };
+
+  const [dateAndTime, setDateAndTime] = useState(blankDateTime);
+
+  const { pickupDate, pickupTime } = dateAndTime;
 
   function checkForEmptyTip() {
     if (newFormData.tip === "") {
@@ -91,6 +101,58 @@ const CheckoutInfo = ({ addNewFormData }) => {
       dropoff_location: address,
     });
   }, [address]);
+
+  useEffect(() => {
+    if (dateAndTime.pickupDate === "today") {
+      setTodaySelect(true);
+    } else {
+      setTodaySelect(false);
+    }
+
+    if (
+      dateAndTime.pickupTime !== moment(dateAndTime.pickupTime).toISOString()
+    ) {
+      let dateCreator;
+      dateCreator = dateAndTime.pickupDate.concat(" " + dateAndTime.pickupTime);
+      console.log("date creator:", dateCreator);
+      dateCreator = moment(dateCreator).toISOString();
+      console.log("date creator:", dateCreator);
+      setOrderTimeDate(dateCreator);
+    } else {
+      setOrderTimeDate(dateAndTime.pickupTime);
+    }
+  }, [dateAndTime]);
+
+  useEffect(() => {
+    let isoDate = dateAndTime.pickupDate;
+    let isoMomentDate = moment(isoDate).toISOString();
+    console.log(moment(isoMomentDate).day());
+
+    if (moment(isoMomentDate).day() === 0) {
+      setSundayInt(true);
+      console.log("sunday int", sundayInt);
+    } else {
+      setSundayInt(false);
+    }
+  }, [dateAndTime.pickupDate]);
+
+  const handleDate = (e) => {
+    e.preventDefault();
+    setDateAndTime({
+      ...dateAndTime,
+      pickupDate: e.target.value,
+    });
+    console.log("Date", dateAndTime);
+  };
+
+  const handleTime = (e) => {
+    e.preventDefault();
+    setDateAndTime({
+      ...dateAndTime,
+      pickupTime: e.target.value,
+    });
+    console.log("Time", dateAndTime);
+  };
 
   useEffect(() => {
     if (now > day[1] && now < day[2]) {
@@ -382,6 +444,7 @@ const CheckoutInfo = ({ addNewFormData }) => {
         tip: newFormData.tip,
         dropoff_instructions: newFormData.dropoff_instructions,
         taxes: cart.taxes,
+        pickup_time: orderTimeDate,
         pickup: false,
         totalWithTip: cartTotal.toFixed(2),
         subtotal: cart.subtotal,
@@ -412,6 +475,7 @@ const CheckoutInfo = ({ addNewFormData }) => {
         tip: newFormData.tip,
         dropoff_instructions: newFormData.dropoff_instructions,
         taxes: cart.taxes,
+        pickup_time: orderTimeDate,
         pickup: false,
         totalWithTip: cartTotal.toFixed(2),
         subtotal: cart.subtotal,
@@ -657,6 +721,18 @@ const CheckoutInfo = ({ addNewFormData }) => {
                       onChange={handleInstructionsChange}
                       maxlength="500"
                     ></textarea>
+
+                    <DateTimeWrapper>
+                      <DateAndTime
+                        handleDate={handleDate}
+                        handleTime={handleTime}
+                        todaySelect={todaySelect}
+                        sundayInt={sundayInt}
+                        nextDay={nextDay}
+                        openStore={openStore}
+                        orderTime={true}
+                      />
+                    </DateTimeWrapper>
 
                     <Summary>
                       <SummaryTitle>ORDER SUMMARY</SummaryTitle>
@@ -1047,6 +1123,10 @@ const DistanceImageWrapper = styled.div`
     width: 200px;
     height: 200px;
   }
+`;
+
+const DateTimeWrapper = styled.div`
+  padding-top: 20px;
 `;
 
 const Summary = styled.div`
