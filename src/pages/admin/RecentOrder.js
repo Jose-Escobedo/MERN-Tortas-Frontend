@@ -131,7 +131,9 @@ const RecentOrder = () => {
               {`NAME: ${recentOrder?.dropoff_contact_given_name.toUpperCase()}`}
             </AdminOrderName>
             <AdminOrderTime>
-              {`ORDER CREATED AT: ${moment(recentOrder?.createdAt)}`}
+              {`ORDER CREATED AT: ${moment(recentOrder?.createdAt)
+                .format("YYYY-MM-DD hh:mm")
+                .toUpperCase()}`}
             </AdminOrderTime>
             <AdminOrderAddress>{recentOrder?.address}</AdminOrderAddress>
             {pickupObj ? (
@@ -145,7 +147,14 @@ const RecentOrder = () => {
                 <h2>PICKUP DATE: {recentOrder?.pickup_date.toUpperCase()}</h2>
                 <h2>PICKUP TIME: {recentOrder?.pickup_time.toUpperCase()}</h2>
               </>
-            ) : null}
+            ) : (
+              <h2>
+                ORDER READY BY:{" "}
+                {moment(recentOrder?.pickup_time)
+                  .format("YYYY-MM-DD hh:mm")
+                  .toUpperCase()}
+              </h2>
+            )}
 
             <AdminOrderPrepTime onClick={handlePrepTime}>
               <button value={0}>NOW</button>
@@ -166,10 +175,12 @@ const RecentOrder = () => {
             <AdminOrderTotal>{`TIP: $ ${recentOrder?.tip}`}</AdminOrderTotal>
             {recentOrder?.doordashTrackingLink ? (
               <DoordashSupportId>
-                {`Tracking Link: `}
-                <a href={`${recentOrder?.doordashTrackingLink}`}>
-                  {recentOrder?.doordashTrackingLink}
-                </a>
+                {pickupObj ? null : "Tracking Link: "}
+                {pickupObj ? null : (
+                  <a href={`${recentOrder?.doordashTrackingLink}`}>
+                    {recentOrder?.doordashTrackingLink}
+                  </a>
+                )}
               </DoordashSupportId>
             ) : (
               <h1>
@@ -178,9 +189,10 @@ const RecentOrder = () => {
             )}
 
             {recentOrder?.doordashSupportId ? (
-              <DoordashSupportId>{`Doordash Reference: #${Number(
-                recentOrder?.doordashSupportId
-              )}`}</DoordashSupportId>
+              <DoordashSupportId>
+                {pickupObj ? null : "Doordash Reference: #"}
+                {pickupObj ? null : Number(recentOrder?.doordashSupportId)}
+              </DoordashSupportId>
             ) : (
               <h1>
                 Doordash Driver has not been dispatched please call Admin.
