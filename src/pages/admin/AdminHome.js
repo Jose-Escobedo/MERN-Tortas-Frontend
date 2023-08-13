@@ -113,10 +113,10 @@ const AdminHome = () => {
               })}
             </AdminOrderWrapper>
           </AdminOrderContainer>
-          <div className="homeWidgets">
+          {/* <div className="homeWidgets">
             <SmallWidget />
             <LargeWidget />
-          </div>
+          </div> */}
         </div>
       </AdminContainer>
     </>
@@ -126,6 +126,8 @@ const AdminHome = () => {
 const AdminContainer = styled.div`
   display: flex;
   margin-top: 10px;
+  max-width: 90%;
+  padding: 20px;
 
   .home {
     flex: 4;
