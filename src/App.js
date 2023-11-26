@@ -56,6 +56,7 @@ function App() {
         <Route exact path="/products" element={<ProductList />} />
         <Route exact path="/product/:id" element={<Product />} />
 
+        <Route exact path="/party-packages" element={<Catering />} />        
         <Route exact path="/success" element={<Success />} />
         <Route exact path="/privacy" element={<Privacy />} />
         <Route exact path="/deliverycheckout" element={<CheckoutInfo />} />
