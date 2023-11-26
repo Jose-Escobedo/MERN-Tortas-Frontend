@@ -22,6 +22,7 @@ import Error404 from "./pages/Error404";
 import Menu from "./pages/Menu";
 import OrderLookup from "./pages/OrderLookup";
 import Privacy from "./pages/Privacy";
+import Catering from "./pages/Catering";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
