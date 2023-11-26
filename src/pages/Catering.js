@@ -59,6 +59,7 @@ h2{
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+  z-index: 3;
 }
 
 img{
@@ -84,7 +85,6 @@ justify-content: center;
 align-items: center;
 flex-direction: column;
 min-height: 120vh;
-margin-top: 11vh;
 width: 100%;
 background: white;
 
