@@ -65,7 +65,7 @@ h2{
 
 img{
     width: 100%;
-    height: auto;
+    height: 111vh;
     opacity: 0.8;
 }
 `
