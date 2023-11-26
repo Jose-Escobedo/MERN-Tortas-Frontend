@@ -20,6 +20,7 @@ const Catering = () => {
       <CateringContainer>
          <CateringWrapper>
             <CateringSlider>
+                <h2>CATERING & PRIVATE EVENTS</h2>
 <img alt ="avocado and limones"className="catering-image" src="https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/avocadodesktop.jpg?alt=media&token=f6b6dd01-7de2-4126-9a0c-df507d63f367">
 
 </img>
@@ -50,19 +51,27 @@ display: flex;
 justify-content: center;
 align-items: center;
 width: 100%;
+position: relative;
 
-
+h2{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
 
 img{
     width: 100%;
     height: auto;
+    opacity: 0.8;
 }
 `
 const CateringTitle = styled.h2`
 
 `
 const CateringTitleDescription = styled.span`
-
+padding: 10px;
 `
 const CateringMenu = styled.div`
 
@@ -73,7 +82,8 @@ const CateringWrapper = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-min-height: 100vh;
+flex-direction: column;
+min-height: 120vh;
 margin-top: 11vh;
 width: 100%;
 background: white;
