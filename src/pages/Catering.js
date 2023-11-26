@@ -3,8 +3,25 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
+import React, { useState, useEffect } from 'react';
 
 const Catering = () => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+      };
+  
+      window.addEventListener('resize', handleResize);
+  
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
+
+
+
   return (
     <>
       <Helmet>
@@ -21,7 +38,11 @@ const Catering = () => {
          <CateringWrapper>
             <CateringSlider>
                 <h2>CATERING & PRIVATE EVENTS</h2>
-<img alt ="avocado and limones"className="catering-image" src="https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/avocadodesktop.jpg?alt=media&token=f6b6dd01-7de2-4126-9a0c-df507d63f367">
+<img alt ="avocado and limones"className="catering-image"  src={
+            windowWidth <= 770
+              ? 'https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/mobilesalsas.jpg?alt=media&token=e48f7f30-42a5-4eca-b93a-f6000d54854c'
+              : 'https://firebasestorage.googleapis.com/v0/b/tortas-bffc7.appspot.com/o/avocadodesktop.jpg?alt=media&token=f6b6dd01-7de2-4126-9a0c-df507d63f367'
+          }>
 
 </img>
             </CateringSlider>
