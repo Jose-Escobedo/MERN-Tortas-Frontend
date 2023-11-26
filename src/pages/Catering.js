@@ -60,6 +60,7 @@ h2{
   transform: translate(-50%, -50%);
   color: white;
   z-index: 3;
+  font-size: 3rem;
 }
 
 img{
@@ -75,7 +76,10 @@ const CateringTitleDescription = styled.span`
 padding: 10px;
 `
 const CateringMenu = styled.div`
-
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
 `
 
 
