@@ -154,7 +154,8 @@ const Privacy = () => {
 };
 
 const Wrapper = styled.div`
-  padding: 20px;
+  padding: 50px 20px;
+
   h1 {
     padding: 10px;
   }
@@ -163,6 +164,10 @@ const Wrapper = styled.div`
   }
   h2 {
     padding-top: 10px;
+  }
+
+  @media screen and (max-width: 768px){
+    padding-top: 40px;
   }
 `;
 
