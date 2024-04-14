@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
+import Navbar from "../components/Navbar";
 
 const Privacy = () => {
   return (
@@ -13,6 +14,7 @@ const Privacy = () => {
         />
         <link rel="canonical" href="/privacy"></link>
       </Helmet>
+      <Navbar/>
       <h1>Privacy Policy of Tortas Mexico Studio City</h1>
 
       <p>
