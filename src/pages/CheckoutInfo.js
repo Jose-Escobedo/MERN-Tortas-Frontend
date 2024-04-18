@@ -176,7 +176,7 @@ const CheckoutInfo = ({ addNewFormData }) => {
   useEffect(() => {
     if (routeDistance?.includes("ft")) {
       setFiveMileRadius(false);
-    } else if (Number(routeDistance?.replace(/[^0-9\.]+/g, "")) > 7.0) {
+    } else if (Number(routeDistance?.replace(/[^0-9\.]+/g, "")) > 8.3) {
       setFiveMileRadius(true);
     } else {
       setFiveMileRadius(false);
