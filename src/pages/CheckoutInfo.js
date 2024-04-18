@@ -159,24 +159,24 @@ const CheckoutInfo = ({ addNewFormData }) => {
     console.log("Time", dateAndTime);
   };
 
-  useEffect(() => {
-    if (now > day[1] && now < day[2]) {
-      console.log("We're open right now!");
-      console.log(now);
-      console.log(new Date());
-      setOpenStore(true);
-    } else {
-      console.log("Sorry, we're closed!");
-      console.log(now);
-      console.log(new Date());
-      setOpenStore(false);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (now > day[1] && now < day[2]) {
+  //     console.log("We're open right now!");
+  //     console.log(now);
+  //     console.log(new Date());
+  //     setOpenStore(true);
+  //   } else {
+  //     console.log("Sorry, we're closed!");
+  //     console.log(now);
+  //     console.log(new Date());
+  //     setOpenStore(false);
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (routeDistance?.includes("ft")) {
       setFiveMileRadius(false);
-    } else if (Number(routeDistance?.replace(/[^0-9\.]+/g, "")) > 5.0) {
+    } else if (Number(routeDistance?.replace(/[^0-9\.]+/g, "")) > 7.0) {
       setFiveMileRadius(true);
     } else {
       setFiveMileRadius(false);
@@ -621,7 +621,6 @@ const CheckoutInfo = ({ addNewFormData }) => {
         />
         <link rel="canonical" href="/deliverycheckout"></link>
       </Helmet>
-      {openStore ? (
         <>
           <Navbar />
           {isGreaterThanTwenty ? (
@@ -807,9 +806,6 @@ const CheckoutInfo = ({ addNewFormData }) => {
 
           <Footer />
         </>
-      ) : (
-        <ClosedStore />
-      )}
     </>
   );
 };
