@@ -267,8 +267,6 @@ const CheckoutInfo = ({ addNewFormData }) => {
     autocomplete.addListener("place_changed", (e) => {
       var place = autocomplete.getPlace();
 
-      setIsPlaceChange(true);
-
       handleDirectionsMatrix(autocomplete);
       console.log("Latitude", place.geometry.location.lat());
       console.log("Longitude", place.geometry.location.lng());
@@ -309,7 +307,6 @@ const CheckoutInfo = ({ addNewFormData }) => {
 
   //Handle validation for form input
   const enabled =
-    isPlaceChange &&
     email.length > 0 &&
     dropoff_contact_family_name.length > 0 &&
     dropoff_contact_given_name.length > 0 &&
@@ -408,7 +405,6 @@ const CheckoutInfo = ({ addNewFormData }) => {
 
   function handleKeyDown() {
     console.log("Please use Google Maps AutoComplete.");
-    setIsPlaceChange(false);
   }
 
   const handleAddressChange = (e) => {
@@ -458,6 +454,7 @@ const CheckoutInfo = ({ addNewFormData }) => {
         dropoff_instructions: newFormData.dropoff_instructions,
         taxes: cart.taxes,
         pickup_time: orderTimeDate,
+        pickup_date: dateAndTime.pickupDate,
         pickup: false,
         totalWithTip: cartTotal.toFixed(2),
         subtotal: cart.subtotal,
@@ -489,6 +486,7 @@ const CheckoutInfo = ({ addNewFormData }) => {
         dropoff_instructions: newFormData.dropoff_instructions,
         taxes: cart.taxes,
         pickup_time: orderTimeDate,
+        pickup_date: dateAndTime.pickupDate,
         pickup: false,
         totalWithTip: cartTotal.toFixed(2),
         subtotal: cart.subtotal,
@@ -607,7 +605,6 @@ const CheckoutInfo = ({ addNewFormData }) => {
   const redirectToCheckout = (e) => {
     if (!enabled) {
       console.log("!enabled:", newFormData);
-      setIsPlaceText(true);
     } else if (fiveMileRadius) {
       console.log("FiveMileRadius", fiveMileRadius);
     } else {
@@ -635,11 +632,6 @@ const CheckoutInfo = ({ addNewFormData }) => {
             <ContactFormStyled>
               <div className="wrapper">
                 <h1 className="delivery-title">Delivery Information</h1>
-                {isPlaceText ? (
-                  <h1 style={{ color: "red" }}>
-                    Please check if address is correct.
-                  </h1>
-                ) : null}
                 {fiveMileRadius ? (
                   <DistanceImageWrapper>
                     <h1 style={{ color: "red" }} className="check-radius">
