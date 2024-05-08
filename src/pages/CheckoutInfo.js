@@ -66,6 +66,66 @@ const CheckoutInfo = ({ addNewFormData }) => {
 
   const { pickupDate, pickupTime } = dateAndTime;
 
+  useEffect(() => {
+    if (now > day[1] && now < day[2]) {
+      console.log("We're open right now!");
+      console.log(now);
+      console.log(new Date());
+      setOpenStore(true);
+    } else {
+      console.log("Sorry, we're closed!");
+      console.log(now);
+      console.log(new Date());
+      setOpenStore(false);
+    }
+
+    if (now > day[2]) {
+      setNextDay(true);
+    } else {
+      setNextDay(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (dateAndTime.pickupDate === "today") {
+      setTodaySelect(true);
+    } else {
+      setTodaySelect(false);
+    }
+  }, [dateAndTime]);
+
+  useEffect(() => {
+    let isoDate = dateAndTime.pickupDate;
+    let isoMomentDate = moment(isoDate).toISOString();
+    console.log(moment(isoMomentDate).day());
+
+    if (moment(isoMomentDate).day() === 0) {
+      setSundayInt(true);
+      console.log("sunday int", sundayInt);
+    } else {
+      setSundayInt(false);
+    }
+  }, [dateAndTime.pickupDate]);
+
+  const handleDate = (e) => {
+    e.preventDefault();
+    setDateAndTime({
+      ...dateAndTime,
+      pickupDate: e.target.value,
+    });
+    console.log("Date", dateAndTime);
+  };
+
+  const handleTime = (e) => {
+    e.preventDefault();
+    setDateAndTime({
+      ...dateAndTime,
+      pickupTime: e.target.value,
+    });
+    console.log("Time", dateAndTime);
+  };
+
+
   function checkForEmptyTip() {
     if (newFormData.tip === "") {
       setEmptyTip(true);
@@ -106,60 +166,6 @@ const CheckoutInfo = ({ addNewFormData }) => {
       dropoff_location: address,
     });
   }, [address]);
-
-  useEffect(() => {
-
-
-    if (dateAndTime.pickupDate === "today") {
-      setTodaySelect(true);
-    } else {
-      setTodaySelect(false);
-    }
-
-    if (
-      dateAndTime.pickupTime !== moment(dateAndTime.pickupTime).toISOString()
-    ) {
-      let dateCreator;
-      dateCreator = dateAndTime.pickupDate.concat(" " + dateAndTime.pickupTime);
-      console.log("date creator:", dateCreator);
-      dateCreator = moment(dateCreator).toISOString();
-      console.log("date creator:", dateCreator);
-      setOrderTimeDate(dateCreator);
-    } else {
-      setOrderTimeDate(dateAndTime.pickupTime);
-    }
-  }, [dateAndTime]);
-
-  useEffect(() => {
-    let isoDate = dateAndTime.pickupDate;
-    let isoMomentDate = moment(isoDate).toISOString();
-    console.log(moment(isoMomentDate).day());
-
-    if (moment(isoMomentDate).day() === 0) {
-      setSundayInt(true);
-      console.log("sunday int", sundayInt);
-    } else {
-      setSundayInt(false);
-    }
-  }, [dateAndTime.pickupDate]);
-
-  const handleDate = (e) => {
-    e.preventDefault();
-    setDateAndTime({
-      ...dateAndTime,
-      pickupDate: e.target.value,
-    });
-    console.log("Date", dateAndTime);
-  };
-
-  const handleTime = (e) => {
-    e.preventDefault();
-    const selectedTime = e.target.value;
-    setDateAndTime({
-      ...dateAndTime,
-      pickupTime: selectedTime,
-    });
-  };
 
   // useEffect(() => {
   //   if (now > day[1] && now < day[2]) {
