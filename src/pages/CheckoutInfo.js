@@ -423,6 +423,7 @@ const CheckoutInfo = ({ addNewFormData }) => {
     //   String(Object.values(extractAddress(place))).replace(/,/g, " ")
     // );
     setAddress(String(Object.values(extractAddress(place))).replace(/,/g, " "));
+    console.log(address);
   };
 
   const handleDirectionsMatrix = (e) => {
