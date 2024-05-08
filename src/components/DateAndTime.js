@@ -46,110 +46,122 @@ const DateAndTime = ({
 
   const [openModal, setOpenModal] = useState(false);
 
+  const currentTime = moment().format("HH.mm");
+  let timeOptions = [];
+
+  if (sundayInt) {
+    const openingTimeSunday = moment("10:30", "HH:mm"); // Sunday opening time
+    const closingTimeSunday = moment("20:30", "HH:mm"); // Sunday closing time
+
+    const currentTimeInt = moment(currentTime, "HH:mm");
+
+    while (currentTimeInt.isBefore(closingTimeSunday)) {
+      if (currentTimeInt.isAfter(openingTimeSunday)) {
+        timeOptions.push(currentTimeInt.format("HH:mm"));
+      }
+      currentTimeInt.add(15, "m");
+    }
+  } else {
+    // Generate time options for other days
+    const currentTimeInt = moment(currentTime, "HH:mm");
+    const openingTime = moment("09:00", "HH:mm"); // Example opening time
+    const closingTime = moment("20:30", "HH:mm"); // Example closing time
+
+    while (currentTimeInt.isBefore(closingTime)) {
+      if (currentTimeInt.isAfter(openingTime)) {
+        timeOptions.push(currentTimeInt.format("HH:mm"));
+      }
+      currentTimeInt.add(15, "m");
+    }
+  }
+
 
 
   return (
-    <div>
-      {orderTime ? (
-        <DateTitle>ORDER TIME (OPTIONAL) </DateTitle>
-      ) : (
-        <DateTitle>PICKUP TIME (OPTIONAL)</DateTitle>
-      )}
-      <OtherwiseText>
-        Otherwise order will be made as soon as possible.
-      </OtherwiseText>
-      <DateTime id="date-range">
+   <div>
+    {orderTime ? (
+      <DateTitle>ORDER TIME (OPTIONAL) </DateTitle>
+    ) : (
+      <DateTitle>PICKUP TIME (OPTIONAL)</DateTitle>
+    )}
+    <OtherwiseText>
+      Otherwise order will be made as soon as possible.
+    </OtherwiseText>
+    <DateTime id="date-range">
+      <select
+        onChange={(e) => handleDate(e)}
+        name="selectedDay"
+        defaultValue=""
+      >
+        <option value="" disabled>
+          SELECT A DATE
+        </option>
+        {nextDay ? (
+          <option value={moment(currentDate).add(1, "d").toDate()}>
+            TOMORROW
+          </option>
+        ) : (
+          <option value="today">TODAY</option>
+        )}
+        <option value={formattedTomorrow}>{String(formattedTomorrow)}</option>
+        <option value={formattedDayAfter}>{String(formattedDayAfter)}</option>
+        <option value={fThreeDaysAhead}>{String(fThreeDaysAhead)}</option>
+        <option value={fFourDaysAhead}>{String(fFourDaysAhead)}</option>
+        <option value={fFiveDaysAhead}>{String(fFiveDaysAhead)}</option>
+      </select>
+    </DateTime>
+    {todaySelect ? (
+      <DateTime id="time-range">
         <select
-          onChange={(e) => handleDate(e)}
-          name="selectedDay"
+          onChange={(e) => handleTime(e)}
+          name="selectedTime"
           defaultValue=""
         >
           <option value="" disabled>
-            SELECT A DATE
+            SELECT A TIME
           </option>
-          {nextDay ? (
-            <option value={moment(currentDate).add(1, "d").toDate()}>
-              TOMORROW
-            </option>
+          {sundayInt ? (
+            // Only render Sunday time options
+            timeIntervalsSunday.map((interval, index) => (
+              <option key={index} value={interval.value}>
+                {interval.option}
+              </option>
+            ))
           ) : (
-            <option value="today">TODAY</option>
+            // Render time options for other days
+            timeIntervals.map((interval, index) => (
+              <option key={index} value={interval.value}>
+                {interval.option}
+              </option>
+            ))
           )}
-          <option value={formattedTomorrow}>{String(formattedTomorrow)}</option>
-          <option value={formattedDayAfter}>{String(formattedDayAfter)}</option>
-          <option value={fThreeDaysAhead}>{String(fThreeDaysAhead)}</option>
-          <option value={fFourDaysAhead}>{String(fFourDaysAhead)}</option>
-          <option value={fFiveDaysAhead}>{String(fFiveDaysAhead)}</option>
         </select>
       </DateTime>
-      {todaySelect ? (
-        <DateTime id="time-range">
-          <select
-            onChange={(e) => handleTime(e)}
-            name="selectedTime"
-            defaultValue=""
-          >
-            <option value="" disabled>
-              SELECT A TIME
-            </option>
-            {openStore ? (
-              <>
-                <option value={orderTime ? fifteenMinutes : fFifteenMinutes}>
-                  {String(fFifteenMinutes)}
+    ) : (
+      <DateTime id="time-range">
+        <select
+          onChange={(e) => handleTime(e)}
+          name="selectedTime"
+          defaultValue=""
+        >
+          <option value="" disabled>
+            SELECT A TIME
+          </option>
+          {sundayInt
+            ? timeIntervalsSunday.map((interval, index) => (
+                <option key={index} value={interval.value}>
+                  {interval.option}
                 </option>
-                <option value={orderTime ? thirtyMinutes : fThirtyMinutes}>
-                  {String(fThirtyMinutes)}
+              ))
+            : timeIntervals.map((interval, index) => (
+                <option key={index} value={interval.value}>
+                  {interval.option}
                 </option>
-                <option
-                  value={orderTime ? fortyfiveMinutes : fFortyfiveMinutes}
-                >
-                  {String(fFortyfiveMinutes)}
-                </option>
-                <option value={orderTime ? oneHour : fOneHour}>
-                  {String(fOneHour)}
-                </option>
-                <option value={orderTime ? oneHourThirty : fOneHourThirty}>
-                  {String(fOneHourThirty)}
-                </option>
-                <option value={orderTime ? twoHours : fTwoHours}>
-                  {String(fTwoHours)}
-                </option>
-                <option value={orderTime ? threeHours : fThreeHours}>
-                  {String(fThreeHours)}
-                </option>
-                <option value={orderTime ? fourHours : fFourHours}>
-                  {String(fFourHours)}
-                </option>
-              </>
-            ) : (
-              <>
-                {timeIntervalsSunday.map((interval) => (
-                  <option value={interval.value}>{interval.option}</option>
-                ))}
-              </>
-            )}
-          </select>
-        </DateTime>
-      ) : (
-        <DateTime id="time-range">
-          <select
-            onChange={(e) => handleTime(e)}
-            name="selectedTime"
-            defaultValue=""
-          >
-            <option value="" disabled>
-              SELECT A TIME
-            </option>
-            {sundayInt
-              ? timeIntervalsSunday.map((interval) => (
-                  <option value={interval.value}>{interval.option}</option>
-                ))
-              : timeIntervals.map((interval) => (
-                  <option value={interval.value}>{interval.option}</option>
-                ))}
-          </select>
-        </DateTime>
-      )}
-    </div>
+              ))}
+        </select>
+      </DateTime>
+    )}
+  </div>
   );
 };
 
