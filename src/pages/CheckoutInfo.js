@@ -76,10 +76,15 @@ const CheckoutInfo = ({ addNewFormData }) => {
         return;
     }
 
-    // If the selected date and time are valid, set the order time
-    setOrderTime(selectedDateTime.toISOString());
+    // Format the selected date and time as "yyyy-MM-ddThh:mm" without seconds or milliseconds
+    const formattedDateTime = selectedDateTime.toISOString().slice(0, 16);
+
+    // Set the formatted date and time as the order time
+    setOrderTime(formattedDateTime);
+
     console.log("order time in iso", orderTime);
 };
+
 
 
 
