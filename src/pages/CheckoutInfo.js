@@ -973,6 +973,27 @@ const ContactFormStyled = styled.div`
       color: black;
     }
   }
+  #dropoff_suite{
+    color: black;
+    border-color: black;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    ::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: black;
+      opacity: 1; /* Firefox */
+    }
+
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: black;
+    }
+
+    ::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: black;
+    }
+  }
   #phone {
     color: black;
     border-color: black;
