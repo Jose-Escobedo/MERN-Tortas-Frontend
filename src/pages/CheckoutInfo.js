@@ -39,6 +39,7 @@ const CheckoutInfo = ({ addNewFormData }) => {
   const [sundayInt, setSundayInt] = useState(false);
   const [nextDay, setNextDay] = useState();
   const [orderTime, setOrderTime] = useState('');
+  const [isValidOrderTime, setIsValidOrderTime] = useState(true);
 
 
   const handleOrderTimeChange = (e) => {
@@ -50,7 +51,7 @@ const CheckoutInfo = ({ addNewFormData }) => {
     // Convert UTC time to PST by subtracting 8 hours
     const pstTime = new Date(selectedDateTime.getTime() - (8 * 60 * 60 * 1000));
 
-    // Check if the selected time falls within the allowed hours for each day
+    // Check if the selected time falls within the allowed hours for each day in PST
     const selectedDay = pstTime.getDay();
     const selectedTime = pstTime.getHours() + (pstTime.getMinutes() / 60);
 
@@ -65,13 +66,16 @@ const CheckoutInfo = ({ addNewFormData }) => {
         6: { start: 9.5, end: 20.5 }, // Saturday: 9:30 AM - 8:30 PM
     };
 
+    // Check if the selected time is within the allowed hours
     if (
         selectedTime < allowedHoursPST[selectedDay].start ||
         selectedTime > allowedHoursPST[selectedDay].end
     ) {
-        // If the selected time is not within the allowed hours for the selected day, reset the order time
-        setOrderTime('');
-        return;
+        // If not within allowed hours, set isValidOrderTime to false
+        setIsValidOrderTime(false);
+    } else {
+        // Otherwise, set isValidOrderTime to true
+        setIsValidOrderTime(true);
     }
 
     // Format the PST time as "yyyy-MM-ddThh:mm" without seconds or milliseconds
@@ -793,6 +797,17 @@ const CheckoutInfo = ({ addNewFormData }) => {
                       maxlength="500"
                     ></textarea>
 
+                  <DateTitle>ORDER TIME (OPTIONAL) </DateTitle>
+                      <OtherwiseText>
+                        Otherwise order will be made as soon as possible.
+                     </OtherwiseText>
+
+                     {!isValidOrderTime && (
+  <OrderWarningText>
+    Please select a date and time within our store hours.
+  </OrderWarningText>
+)}
+
                     <input
                     type="datetime-local" // Use datetime-local input for selecting date and time
                     id="order-time"
@@ -874,6 +889,16 @@ const CheckoutInfo = ({ addNewFormData }) => {
     </>
   );
 };
+
+const DateTitle = styled.div`
+  font-size: 2rem;
+  padding-bottom: 20px;
+`;
+const OtherwiseText = styled.div`
+  font-size: 1rem;
+  padding-bottom: 20px;
+`;
+
 const ContactFormStyled = styled.div`
   margin-top: 70px;
   min-height: 100%;
