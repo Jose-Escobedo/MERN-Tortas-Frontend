@@ -40,10 +40,48 @@ const CheckoutInfo = ({ addNewFormData }) => {
   const [nextDay, setNextDay] = useState();
   const [orderTime, setOrderTime] = useState('');
 
-    const handleOrderTimeChange = (e) => {
-        setOrderTime(e.target.value);
-        console.log(orderTime);
+
+  const handleOrderTimeChange = (e) => {
+    const selectedDateTime = new Date(e.target.value);
+    
+    // Check if the selected date is in the future
+    const now = new Date();
+    if (selectedDateTime <= now) {
+        // If the selected date is not in the future, reset the order time
+        setOrderTime('');
+        return;
+    }
+
+    // Check if the selected time falls within the allowed hours for each day
+    const selectedDay = selectedDateTime.getDay();
+    const selectedTime = selectedDateTime.getHours() + (selectedDateTime.getMinutes() / 60);
+
+    // Define the allowed time ranges for each day
+    const allowedHours = {
+        0: { start: 10, end: 20.5 }, // Sunday: 10:00 AM - 8:30 PM
+        1: { start: 9.5, end: 20.5 }, // Monday: 9:30 AM - 8:30 PM
+        2: { start: 9.5, end: 20.5 }, // Tuesday: 9:30 AM - 8:30 PM
+        3: { start: 9.5, end: 20.5 }, // Wednesday: 9:30 AM - 8:30 PM
+        4: { start: 9.5, end: 20.5 }, // Thursday: 9:30 AM - 8:30 PM
+        5: { start: 9.5, end: 20.5 }, // Friday: 9:30 AM - 8:30 PM
+        6: { start: 9.5, end: 20.5 }, // Saturday: 9:30 AM - 8:30 PM
     };
+
+    if (
+        selectedTime < allowedHours[selectedDay].start ||
+        selectedTime > allowedHours[selectedDay].end
+    ) {
+        // If the selected time is not within the allowed hours for the selected day, reset the order time
+        setOrderTime('');
+        return;
+    }
+
+    // If the selected date and time are valid, set the order time
+    setOrderTime(selectedDateTime.toISOString());
+    console.log("order time in iso", orderTime);
+};
+
+
 
   const mapApiJs = "https://maps.googleapis.com/maps/api/js";
   const apiKey = process.env.REACT_APP_PLACES;
