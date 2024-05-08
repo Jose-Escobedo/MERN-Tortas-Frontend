@@ -285,6 +285,7 @@ const CheckoutInfo = ({ addNewFormData }) => {
     email: "",
     dropoff_phone_number: "",
     dropoff_instructions: "",
+    dropoff_suite: "",
     dropoff_location: "",
     tip: "",
   };
@@ -298,6 +299,7 @@ const CheckoutInfo = ({ addNewFormData }) => {
     dropoff_phone_number,
     dropoff_instructions,
     tip,
+    dropoff_suite,
     dropoff_location,
   } = newFormData;
 
@@ -354,6 +356,13 @@ const CheckoutInfo = ({ addNewFormData }) => {
     setFormData({
       ...newFormData,
       dropoff_instructions: e.target.value,
+    });
+  };
+
+  const handleSuiteChange = (e) => {
+    setFormData({
+      ...newFormData,
+      dropoff_suite: e.target.value,
     });
   };
 
@@ -452,6 +461,7 @@ const CheckoutInfo = ({ addNewFormData }) => {
         address: address,
         tip: newFormData.tip,
         dropoff_instructions: newFormData.dropoff_instructions,
+        dropoff_suite: newFormData.dropoff_suite,
         taxes: cart.taxes,
         pickup_time: orderTimeDate,
         pickup_date: dateAndTime.pickupDate,
@@ -484,6 +494,7 @@ const CheckoutInfo = ({ addNewFormData }) => {
         address: address,
         tip: newFormData.tip,
         dropoff_instructions: newFormData.dropoff_instructions,
+        dropoff_suite: newFormData.dropoff_suite,
         taxes: cart.taxes,
         pickup_time: orderTimeDate,
         pickup_date: dateAndTime.pickupDate,
@@ -698,6 +709,16 @@ const CheckoutInfo = ({ addNewFormData }) => {
                       placeholder="DELIVERY ADDRESS"
                       name="dropoff_location"
                       required
+                    />
+
+                    <input
+                      type="text"
+                      id="dropoff_suite"
+                      placeholder="SUITE/APT"
+                      name="dropoff_suite"
+                      value={newFormData.dropoff_suite}
+                      onChange={handleSuiteChange}
+                      maxlength="50"
                     />
 
                     <input
