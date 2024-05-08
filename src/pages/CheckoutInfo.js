@@ -108,6 +108,8 @@ const CheckoutInfo = ({ addNewFormData }) => {
   }, [address]);
 
   useEffect(() => {
+
+
     if (dateAndTime.pickupDate === "today") {
       setTodaySelect(true);
     } else {
@@ -152,11 +154,11 @@ const CheckoutInfo = ({ addNewFormData }) => {
 
   const handleTime = (e) => {
     e.preventDefault();
+    const selectedTime = e.target.value;
     setDateAndTime({
       ...dateAndTime,
-      pickupTime: e.target.value,
+      pickupTime: selectedTime,
     });
-    console.log("Time", dateAndTime);
   };
 
   // useEffect(() => {
