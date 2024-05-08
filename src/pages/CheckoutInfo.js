@@ -41,7 +41,6 @@ const CheckoutInfo = ({ addNewFormData }) => {
   const [orderTime, setOrderTime] = useState('');
   const [isValidOrderTime, setIsValidOrderTime] = useState(true);
 
-
   const handleOrderTimeChange = (e) => {
     const selectedDateTime = new Date(e.target.value);
     
@@ -67,22 +66,18 @@ const CheckoutInfo = ({ addNewFormData }) => {
     };
 
     // Check if the selected time is within the allowed hours
-    if (
-        selectedTime < allowedHoursPST[selectedDay].start ||
-        selectedTime > allowedHoursPST[selectedDay].end
-    ) {
-        // If not within allowed hours, set isValidOrderTime to false
-        setIsValidOrderTime(false);
-    } else {
-        // Otherwise, set isValidOrderTime to true
-        setIsValidOrderTime(true);
-    }
+    setIsValidOrderTime(
+      selectedTime >= allowedHoursPST[selectedDay].start &&
+      selectedTime <= allowedHoursPST[selectedDay].end
+    );
 
     // Format the PST time as "yyyy-MM-ddThh:mm" without seconds or milliseconds
     const formattedPSTTime = pstTime.toISOString().slice(0, 16);
 
     // Set the formatted PST time as the order time
     setOrderTime(formattedPSTTime);
+
+    console.log("order Time", orderTime);
 };
 
 
@@ -815,7 +810,6 @@ const CheckoutInfo = ({ addNewFormData }) => {
                     name="order_time"
                     value={orderTime}
                     onChange={handleOrderTimeChange}
-                    required
                     />
 
                     <Summary>
@@ -902,6 +896,7 @@ const OtherwiseText = styled.div`
 const OrderWarningText = styled.div`
   font-size: 1rem;
   padding-bottom: 20px;
+  color: red;
 `;
 
 const ContactFormStyled = styled.div`
