@@ -136,6 +136,7 @@ const RecentOrder = () => {
                 .toUpperCase()}`}
             </AdminOrderTime>
             <AdminOrderAddress>{recentOrder?.address}</AdminOrderAddress>
+            <AdminOrderPhone>{recentOrder?.phone}</AdminOrderPhone>
             {pickupObj ? (
               <h2 id="pickupobj">PICKUP</h2>
             ) : (
@@ -229,6 +230,11 @@ const AdminOrderWrapper = styled.div`
   #pickupobj {
     font-size: 2rem;
   }
+`;
+
+const AdminOrderPhone = styled.span`
+  font-size: 2rem;
+  padding-bottom: 10px;
 `;
 
 const AdminOrderBackButton = styled.div`
