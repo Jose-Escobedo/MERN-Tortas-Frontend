@@ -44,20 +44,18 @@ const CheckoutInfo = ({ addNewFormData }) => {
   const handleOrderTimeChange = (e) => {
     const selectedDateTime = new Date(e.target.value);
     
-    // Check if the selected date is in the future
-    const now = new Date();
-    if (selectedDateTime <= now) {
-        // If the selected date is not in the future, reset the order time
-        setOrderTime('');
-        return;
-    }
+    // Convert the selected time to UTC
+    const utcTime = selectedDateTime.toISOString();
+
+    // Convert UTC time to PST by subtracting 8 hours
+    const pstTime = new Date(selectedDateTime.getTime() - (8 * 60 * 60 * 1000));
 
     // Check if the selected time falls within the allowed hours for each day
-    const selectedDay = selectedDateTime.getDay();
-    const selectedTime = selectedDateTime.getHours() + (selectedDateTime.getMinutes() / 60);
+    const selectedDay = pstTime.getDay();
+    const selectedTime = pstTime.getHours() + (pstTime.getMinutes() / 60);
 
-    // Define the allowed time ranges for each day
-    const allowedHours = {
+    // Define the allowed time ranges for each day in PST
+    const allowedHoursPST = {
         0: { start: 10, end: 20.5 }, // Sunday: 10:00 AM - 8:30 PM
         1: { start: 9.5, end: 20.5 }, // Monday: 9:30 AM - 8:30 PM
         2: { start: 9.5, end: 20.5 }, // Tuesday: 9:30 AM - 8:30 PM
@@ -68,22 +66,21 @@ const CheckoutInfo = ({ addNewFormData }) => {
     };
 
     if (
-        selectedTime < allowedHours[selectedDay].start ||
-        selectedTime > allowedHours[selectedDay].end
+        selectedTime < allowedHoursPST[selectedDay].start ||
+        selectedTime > allowedHoursPST[selectedDay].end
     ) {
         // If the selected time is not within the allowed hours for the selected day, reset the order time
         setOrderTime('');
         return;
     }
 
-    // Format the selected date and time as "yyyy-MM-ddThh:mm" without seconds or milliseconds
-    const formattedDateTime = selectedDateTime.toISOString().slice(0, 16);
+    // Format the PST time as "yyyy-MM-ddThh:mm" without seconds or milliseconds
+    const formattedPSTTime = pstTime.toISOString().slice(0, 16);
 
-    // Set the formatted date and time as the order time
-    setOrderTime(formattedDateTime);
-
-    console.log("order time in iso", orderTime);
+    // Set the formatted PST time as the order time
+    setOrderTime(formattedPSTTime);
 };
+
 
 
 
