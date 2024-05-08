@@ -899,6 +899,11 @@ const OtherwiseText = styled.div`
   padding-bottom: 20px;
 `;
 
+const OrderWarningText = styled.div`
+  font-size: 1rem;
+  padding-bottom: 20px;
+`;
+
 const ContactFormStyled = styled.div`
   margin-top: 70px;
   min-height: 100%;
