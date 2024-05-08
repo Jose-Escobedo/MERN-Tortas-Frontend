@@ -38,7 +38,12 @@ const CheckoutInfo = ({ addNewFormData }) => {
   const [todaySelect, setTodaySelect] = useState();
   const [sundayInt, setSundayInt] = useState(false);
   const [nextDay, setNextDay] = useState();
-  const [orderTimeDate, setOrderTimeDate] = useState();
+  const [orderTime, setOrderTime] = useState('');
+
+    const handleOrderTimeChange = (e) => {
+        setOrderTime(e.target.value);
+        console.log(orderTime);
+    };
 
   const mapApiJs = "https://maps.googleapis.com/maps/api/js";
   const apiKey = process.env.REACT_APP_PLACES;
@@ -464,7 +469,7 @@ const CheckoutInfo = ({ addNewFormData }) => {
         dropoff_instructions: newFormData.dropoff_instructions,
         dropoff_suite: newFormData.dropoff_suite,
         taxes: cart.taxes,
-        pickup_time: orderTimeDate,
+        pickup_time: orderTime,
         pickup_date: dateAndTime.pickupDate,
         pickup: false,
         totalWithTip: cartTotal.toFixed(2),
@@ -497,7 +502,7 @@ const CheckoutInfo = ({ addNewFormData }) => {
         dropoff_instructions: newFormData.dropoff_instructions,
         dropoff_suite: newFormData.dropoff_suite,
         taxes: cart.taxes,
-        pickup_time: orderTimeDate,
+        pickup_time: orderTime,
         pickup_date: dateAndTime.pickupDate,
         pickup: false,
         totalWithTip: cartTotal.toFixed(2),
@@ -748,17 +753,15 @@ const CheckoutInfo = ({ addNewFormData }) => {
                       maxlength="500"
                     ></textarea>
 
-                    <DateTimeWrapper>
-                      <DateAndTime
-                        handleDate={handleDate}
-                        handleTime={handleTime}
-                        todaySelect={todaySelect}
-                        sundayInt={sundayInt}
-                        nextDay={nextDay}
-                        openStore={openStore}
-                        orderTime={true}
-                      />
-                    </DateTimeWrapper>
+                    <input
+                    type="datetime-local" // Use datetime-local input for selecting date and time
+                    id="order-time"
+                    placeholder="Order Time"
+                    name="order_time"
+                    value={orderTime}
+                    onChange={handleOrderTimeChange}
+                    required
+                    />
 
                     <Summary>
                       <SummaryTitle>ORDER SUMMARY</SummaryTitle>
