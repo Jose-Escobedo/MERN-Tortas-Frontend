@@ -172,7 +172,9 @@ const RecentOrder = () => {
             <AdminOrderTotal>{`TOTAL: $ ${recentOrder?.total.toFixed(
               2
             )}`}</AdminOrderTotal>
-            <AdminOrderTotal>{`TIP: $ ${recentOrder?.tip}`}</AdminOrderTotal>
+        {recentOrder?.tip && recentOrder.tip !== 0 && (
+          <AdminOrderTotal>{`TIP: $ ${recentOrder.tip}`}</AdminOrderTotal>
+        )}
             {recentOrder?.doordashTrackingLink ? (
               <DoordashSupportId>
                 {pickupObj ? null : "Tracking Link: "}
