@@ -792,18 +792,19 @@ const CheckoutInfo = ({ addNewFormData }) => {
                       maxlength="500"
                     ></textarea>
 
-                  <DateTitle>ORDER TIME (OPTIONAL) </DateTitle>
-                      <OtherwiseText>
+                  <DateTitle  style={{ display: "none" }}>ORDER TIME (OPTIONAL) </DateTitle>
+                      <OtherwiseText  style={{ display: "none" }}>
                         Otherwise order will be made as soon as possible.
                      </OtherwiseText>
 
                      {!isValidOrderTime && (
-  <OrderWarningText>
+  <OrderWarningText  style={{ display: "none" }}>
     Please select a date and time within our store hours.
   </OrderWarningText>
 )}
 
                     <input
+                    style={{ display: "none" }}
                     type="datetime-local" // Use datetime-local input for selecting date and time
                     id="order-time"
                     placeholder="Order Time"
