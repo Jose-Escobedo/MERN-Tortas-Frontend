@@ -152,7 +152,7 @@ const RecentOrder = () => {
               <h2>
                 ORDER READY BY:{" "}
                 {moment(recentOrder?.pickup_time)
-                  .format("YYYY-MM-DD hh:mm")
+                  .format("YYYY-MM-DD hh:mm A")
                   .toUpperCase()}
               </h2>
             )}
