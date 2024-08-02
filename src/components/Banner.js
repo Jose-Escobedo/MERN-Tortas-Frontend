@@ -19,9 +19,9 @@ const BannerContainer = styled.div`
   justify-content: center;
   width: 100%;
   padding: 20px;
-  background-color: cyan;
+  background-color: #d9edf7;
+  border: 1px solid #bcdff1;
   height: auto;
-  margin-top: 60px;
 
   @media (max-width: 768px) {
     padding: 15px;
@@ -33,6 +33,7 @@ const BannerContainerText = styled.h2`
   margin: 0;
   font-family: Urbanist, sans-serif;
   font-size: 1.5rem;
+  color: #31708f;
   text-align: center;
 
   @media (max-width: 768px) {
