@@ -21,6 +21,7 @@ const BannerContainer = styled.div`
   padding: 20px;
   background-color: cyan;
   height: auto;
+  margin-top: 60px;
 
   @media (max-width: 768px) {
     padding: 15px;
