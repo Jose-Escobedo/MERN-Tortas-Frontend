@@ -68,11 +68,12 @@ const OptionalDelivery = ({}) => {
 };
 
 const OptionalDeliveryContainer = styled.div`
-  margin-top: 60px;
+/*margin-top: 60px */
+/*padding: 20px 0; */
   min-height: 80vh;
   max-width: 100%;
   overflow: hidden;
-  padding: 20px 0;
+  padding-bottom: 20px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -105,6 +106,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-top: 20px;
   h1 {
     color: black;
   }
