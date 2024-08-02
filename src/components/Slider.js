@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ArrowLeftOutlined from "@material-ui/icons/ArrowLeftOutlined";
 import ArrowRightOutlined from "@material-ui/icons/ArrowRightOutlined";
+import Banner from "./Banner";
 import { SliderItems } from "../data";
 import { useState } from "react";
 import { mobile } from "../responsive";
@@ -44,6 +45,7 @@ const Slider = () => {
 
   return (
     <>
+    <Banner></Banner>
       <MobileLandingSection>
         <MobileWrapper>
           <TitleButtonWrapper>
