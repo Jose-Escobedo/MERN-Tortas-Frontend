@@ -6,7 +6,7 @@ const Banner = () => {
     <>
       <BannerContainer>
         <BannerContainerText>
-          Due to ongoing improvements to our delivery system, we are temporarily unable to accept online delivery orders. We apologize for any inconvenience and appreciate your understanding as we work to enhance our service. We look forward to resuming deliveries soon.
+          Due to ongoing improvements, online delivery orders are temporarily unavailable. You can still order for pickup on our website or get delivery through <StyledLink href="https://www.grubhub.com/restaurant/tortas-mexico-11040-ventura-blvd-studio-city/141026" target="_blank" rel="noopener noreferrer">Grubhub</StyledLink> and <StyledLink href="https://www.doordash.com/business/tortas-mexico-129293/" target="_blank" rel="noopener noreferrer">DoorDash</StyledLink>.
         </BannerContainerText>
       </BannerContainer>
     </>
@@ -22,7 +22,7 @@ const BannerContainer = styled.div`
   background-color: #d9edf7;
   border: 1px solid #bcdff1;
   height: auto;
-  margin-top: 70px;
+  margin-top: 80px;
 
   @media (max-width: 768px) {
     padding: 15px;
@@ -38,7 +38,17 @@ const BannerContainerText = styled.h2`
   text-align: center;
 
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+  }
+`;
+
+const StyledLink = styled.a`
+  font-weight: bold;
+  font-style: italic;
+  text-decoration: underline;
+  color: #31708f;
+
+  &:hover {
+    color: #245269;
   }
 `;
 
