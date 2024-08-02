@@ -22,6 +22,7 @@ const BannerContainer = styled.div`
   background-color: #d9edf7;
   border: 1px solid #bcdff1;
   height: auto;
+  margin-top: 70px;
 
   @media (max-width: 768px) {
     padding: 15px;
@@ -32,7 +33,7 @@ const BannerContainerText = styled.h2`
   font-weight: 300;
   margin: 0;
   font-family: Urbanist, sans-serif;
-  font-size: 1.5rem;
+  font-size: .8rem;
   color: #31708f;
   text-align: center;
 
