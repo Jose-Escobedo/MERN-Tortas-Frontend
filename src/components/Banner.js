@@ -23,7 +23,7 @@ const BannerContainer = styled.div`
   background-color: #d9edf7;
   border: 1px solid #bcdff1;
   height: auto;
-  margin-top: 80px;
+  margin-top: 93px;
 
   @media (max-width: 768px) {
     padding: 15px;

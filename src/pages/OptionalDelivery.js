@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import deliverySvg from "../images/delivery.svg";
 import pickupSvg from "../images/pickup.svg";
 import { Link } from "react-router-dom";
+import Banner from "../components/Banner";
 
 const OptionalDelivery = ({}) => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const OptionalDelivery = ({}) => {
   return (
     <>
       <Navbar />
+      <Banner/>
       <OptionalDeliveryContainer>
         <Wrapper>
           <h1>This Order is for...</h1>
@@ -115,6 +117,7 @@ const DeliveryWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 50%;
+  display: none;
   img {
     width: 175px;
     height: 175px;
