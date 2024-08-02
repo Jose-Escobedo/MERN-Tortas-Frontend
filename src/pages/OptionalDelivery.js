@@ -16,8 +16,8 @@ const OptionalDelivery = ({}) => {
   return (
     <>
       <Navbar />
-      <Banner/>
       <OptionalDeliveryContainer>
+      <Banner/>
         <Wrapper>
           <h1>This Order is for...</h1>
           <TwoBoxContainer>
@@ -72,13 +72,12 @@ const OptionalDeliveryContainer = styled.div`
   min-height: 80vh;
   max-width: 100%;
   overflow: hidden;
-  padding: 4.5em 0em;
+  padding: 20px 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
   border-top: 1px solid black;
   color: white;
-
   background: white;
 `;
 
