@@ -45,8 +45,9 @@ const Slider = () => {
 
   return (
     <>
+     <Banner/>
       <MobileLandingSection>
-        <Banner/>
+       
         <MobileWrapper>
           <TitleButtonWrapper>
             <h1>Tortas Mexico</h1>
@@ -346,7 +347,6 @@ const Slider = () => {
         </MobileWrapper>
       </MobileLandingSection>
       <Container>
-        <Banner/>
         <Arrow direction="left" onClick={() => handleClick("left")}>
           <ArrowLeftOutlined />
         </Arrow>
