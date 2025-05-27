@@ -20,7 +20,8 @@ const OptionalDelivery = ({}) => {
         <Wrapper>
           <h1>This Order is for...</h1>
           <TwoBoxContainer>
-            <DeliveryWrapper>
+            {isGreaterThanTwenty ? (
+              <DeliveryWrapper>
                 <DeliveryLink to="/deliverycheckout">
                   <DeliveryButton>
                     <h3 className="click-btn delivery">Delivery</h3>
@@ -31,6 +32,19 @@ const OptionalDelivery = ({}) => {
                   alt="Illustration featuring a car getting to its delivery destination."
                 ></img>
               </DeliveryWrapper>
+            ) : (
+              <DeliveryWrapper>
+                <DeliveryLink to="/insufficentsubtotal">
+                  <DeliveryButton>
+                    <h3 className="click-btn delivery">Delivery</h3>
+                  </DeliveryButton>
+                </DeliveryLink>
+                <img
+                  src={deliverySvg}
+                  alt="Illustration featuring a car getting to its delivery destination."
+                ></img>
+              </DeliveryWrapper>
+            )}
             <PickupWrapper>
               <PickupLink to="/pickupcheckout">
                 <PickupButton>
@@ -103,7 +117,6 @@ const DeliveryWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 50%;
-  display: none;
   img {
     width: 175px;
     height: 175px;
