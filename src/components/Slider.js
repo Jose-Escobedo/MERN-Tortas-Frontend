@@ -346,6 +346,7 @@ const Slider = () => {
         </MobileWrapper>
       </MobileLandingSection>
       <Container>
+        <Banner/>
         <Arrow direction="left" onClick={() => handleClick("left")}>
           <ArrowLeftOutlined />
         </Arrow>
