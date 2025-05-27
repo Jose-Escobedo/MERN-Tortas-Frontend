@@ -15,6 +15,7 @@ import StripeCheckout from "./StripeCheckout";
 import moment from "moment";
 import DateAndTime from "../components/DateAndTime";
 import { Helmet } from "react-helmet-async";
+import Banner from "../components/Banner";
 
 const currentDate = moment().toISOString();
 
@@ -408,6 +409,7 @@ const PickupInfo = () => {
       {isGreaterThanFive ? (
         <>
           <Navbar />
+          <Banner/>
           <ContactFormStyled>
             <div className="wrapper">
               <h1 className="delivery-title">PICKUP INFORMATION</h1>

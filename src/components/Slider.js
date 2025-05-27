@@ -46,6 +46,7 @@ const Slider = () => {
   return (
     <>
       <MobileLandingSection>
+        <Banner/>
         <MobileWrapper>
           <TitleButtonWrapper>
             <h1>Tortas Mexico</h1>

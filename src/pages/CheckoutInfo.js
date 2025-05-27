@@ -13,6 +13,7 @@ import moment from "moment";
 import ClosedStore from "./ClosedStore";
 import { Helmet } from "react-helmet-async";
 import DateAndTime from "../components/DateAndTime";
+import Banner from "../components/Banner";
 
 const CheckoutInfo = ({ addNewFormData }) => {
   const currentDate = moment().toISOString();
@@ -684,6 +685,7 @@ const CheckoutInfo = ({ addNewFormData }) => {
       </Helmet>
         <>
           <Navbar />
+          <Banner/>
           {isGreaterThanTwenty ? (
             <ContactFormStyled>
               <div className="wrapper">
