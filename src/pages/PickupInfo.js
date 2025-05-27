@@ -533,6 +533,7 @@ const PickupInfo = () => {
                     id="submit"
                     type="submit"
                     value="SEND"
+                    disabled
                   >
                     <span className="send-text">CONTINUE TO PAYMENT</span>
                     <BsArrowRight style={{ color: "white" }} />

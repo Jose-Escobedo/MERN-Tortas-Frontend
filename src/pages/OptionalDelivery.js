@@ -17,7 +17,6 @@ const OptionalDelivery = ({}) => {
     <>
       <Navbar />
       <OptionalDeliveryContainer>
-      <Banner/>
         <Wrapper>
           <h1>This Order is for...</h1>
           <TwoBoxContainer>
@@ -46,6 +45,17 @@ const OptionalDelivery = ({}) => {
                 ></img>
               </DeliveryWrapper>
             )}
+            <DeliveryWrapper>
+                <DeliveryLink to="/deliverycheckout">
+                  <DeliveryButton>
+                    <h3 className="click-btn delivery">Delivery</h3>
+                  </DeliveryButton>
+                </DeliveryLink>
+                <img
+                  src={deliverySvg}
+                  alt="Illustration featuring a car getting to its delivery destination."
+                ></img>
+              </DeliveryWrapper>
             <PickupWrapper>
               <PickupLink to="/pickupcheckout">
                 <PickupButton>
