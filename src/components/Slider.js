@@ -45,7 +45,6 @@ const Slider = () => {
 
   return (
     <>
-    <Banner></Banner>
       <MobileLandingSection>
         <MobileWrapper>
           <TitleButtonWrapper>
