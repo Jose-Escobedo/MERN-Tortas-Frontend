@@ -16,8 +16,8 @@ const Products = ({ cat, filters, sort }) => {
       try {
         const res = await axios.get(
           cat
-            ? `https://tortasbackend.herokuapp.com/api/products?category=${cat}`
-            : "https://tortasbackend.herokuapp.com/api/products"
+            ? `https://mern-tortas-backend-production.up.railway.app/api/products?category=${cat}`
+            : "https://mern-tortas-backend-production.up.railway.app/api/products"
         );
         setProducts(res.data);
       } catch (err) {}
