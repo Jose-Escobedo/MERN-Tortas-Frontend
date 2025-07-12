@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://tortasbackend.herokuapp.com/api";
+const BASE_URL = "https://mern-tortas-backend-production.up.railway.app/api";
 const TOKEN = JSON.parse(
   JSON.parse(localStorage.getItem("persist:root"))?.user || "{}"
 )?.currentUser?.accessToken;
