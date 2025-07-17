@@ -7,7 +7,12 @@ const Banner = () => {
       <BannerContainerText>
         Thank you for over 20 years of support!<br />
         We have officially shut down operations. Online orders and checkout are no longer available.
-        <br /><StyledLink href="mailto:jose@escobedojose.dev">Contact us with questions</StyledLink>
+        <br />
+        <StyledLink href="mailto:support@pulsecraftweb.com">Contact us with questions</StyledLink>
+        <br />
+        <DesignedByLink href="https://pulsecraftweb.com" target="_blank" rel="noopener noreferrer">
+          Website designed by PulseCraft Web
+        </DesignedByLink>
       </BannerContainerText>
     </BannerContainer>
   );
@@ -36,7 +41,7 @@ const BannerContainerText = styled.h2`
   font-size: 1rem;
   color: #31708f;
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.6;
 
   @media (max-width: 768px) {
     font-size: 0.9rem;
@@ -54,5 +59,18 @@ const StyledLink = styled.a`
   }
 `;
 
-export default Banner;
+const DesignedByLink = styled.a`
+  display: block;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #31708f;
+  text-decoration: none;
 
+  &:hover {
+    color: #245269;
+    text-decoration: underline;
+  }
+`;
+
+export default Banner;
